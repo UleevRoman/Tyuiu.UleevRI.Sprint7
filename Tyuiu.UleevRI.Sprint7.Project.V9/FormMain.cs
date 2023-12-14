@@ -28,6 +28,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
         private void перейтиКРазделуToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormGraphyks formGraphyks = new FormGraphyks();
             formGraphyks.Show();
 
@@ -35,6 +36,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
         private void открытьToolStripMenuItem2_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FormGuied formGuied = new FormGuied();
             formGuied.Show();
         }

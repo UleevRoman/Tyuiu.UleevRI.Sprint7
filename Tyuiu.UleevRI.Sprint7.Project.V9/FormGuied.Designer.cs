@@ -32,11 +32,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemBack_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.panelActions_URI = new System.Windows.Forms.Panel();
             this.textBoxGueid_URI = new System.Windows.Forms.TextBox();
-            this.toolStripMenuItemBack_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.panelHelp_URI.SuspendLayout();
             this.MenuStrip_URI.SuspendLayout();
             this.panelActions_URI.SuspendLayout();
@@ -68,6 +68,13 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
             this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
+            // 
+            // toolStripMenuItemBack_URI
+            // 
+            this.toolStripMenuItemBack_URI.Name = "toolStripMenuItemBack_URI";
+            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 24);
+            this.toolStripMenuItemBack_URI.Text = "Назад";
+            this.toolStripMenuItemBack_URI.Click += new System.EventHandler(this.toolStripMenuItemBack_URI_Click);
             // 
             // toolStripMenuItemHelp_URI
             // 
@@ -107,12 +114,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxGueid_URI.Size = new System.Drawing.Size(1219, 615);
             this.textBoxGueid_URI.TabIndex = 0;
             this.textBoxGueid_URI.Text = "Текст будет позже!!!";
-            // 
-            // toolStripMenuItemBack_URI
-            // 
-            this.toolStripMenuItemBack_URI.Name = "toolStripMenuItemBack_URI";
-            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 24);
-            this.toolStripMenuItemBack_URI.Text = "Назад";
             // 
             // FormGuied
             // 

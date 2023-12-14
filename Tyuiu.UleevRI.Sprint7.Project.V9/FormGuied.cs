@@ -22,5 +22,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             FormAbout formAbout = new FormAbout();
             formAbout.ShowDialog();
         }
+
+        private void toolStripMenuItemBack_URI_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormMain formMain = new FormMain();
+            formMain.Show();
+        }
     }
 }

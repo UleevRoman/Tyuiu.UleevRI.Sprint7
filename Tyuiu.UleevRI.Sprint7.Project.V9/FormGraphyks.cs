@@ -23,10 +23,18 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             formAbout.ShowDialog();
         }
 
-        private void открытьToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void открытьToolStripMenuItemGuied_URI_Click(object sender, EventArgs e)
         {
             FormGuied formGuied = new FormGuied();
             formGuied.Show();
         }
+
+        private void toolStripMenuItemBack_URI_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            FormMain formMain = new FormMain();
+            formMain.Show();
+        }
+
     }
 }
