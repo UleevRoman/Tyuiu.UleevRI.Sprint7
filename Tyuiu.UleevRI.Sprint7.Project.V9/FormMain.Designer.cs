@@ -455,7 +455,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.dataGridViewOpenFile_URI.RowHeadersVisible = false;
             this.dataGridViewOpenFile_URI.RowHeadersWidth = 51;
             this.dataGridViewOpenFile_URI.RowTemplate.Height = 24;
-            this.dataGridViewOpenFile_URI.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewOpenFile_URI.Size = new System.Drawing.Size(913, 373);
             this.dataGridViewOpenFile_URI.TabIndex = 0;
             // 

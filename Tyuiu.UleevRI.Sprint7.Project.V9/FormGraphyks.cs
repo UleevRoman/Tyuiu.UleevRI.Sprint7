@@ -39,64 +39,39 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             FormMain formMain = new FormMain();
             formMain.Show();
         }
-
+        
         static string openFile;
         static int rows;
         static int columns;
         DataService ds = new DataService();
-        public string[,] LoadFromData(string path)
-        {
-            string file = File.ReadAllText(path);
-            file = file.Replace('\n', '\r');
-            string[] lines = file.Split(new char[] { '\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-            rows = lines.Length;
-            columns = lines[0].Split(';').Length;
-
-            string[,] array = new string[rows, columns];
-
-            for (int i = 0; i < rows; i++)
-            {
-                string[] line_mas = lines[i].Split(';');
-                for (int j = 0; j < columns; j++)
-                {
-                    array[i, j] = Convert.ToString(line_mas[j]);
-                }
-            }
-            return array;
-
-        }
-
         private void открытьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
             openFileDialog_URI.ShowDialog();
             openFile = openFileDialog_URI.FileName;
 
-            string[,] matrix = new string[rows, columns];
-            matrix = LoadFromData(openFile);
+            string[,] matrix = ds.LoadFromDataFile(openFile);
+            rows = matrix.GetLength(0);
+            columns = matrix.GetLength(1);
+            dataGridViewGraphyks_URI.RowCount = 100;
+            dataGridViewGraphyks_URI.ColumnCount = 100;
 
-            dataGridViewGraphyks_URI.RowCount = rows;
-            dataGridViewGraphyks_URI.ColumnCount = columns;
-
-            for (int i = 0; i < columns; i++)
+            for (int i = 0; i < rows; i++)
             {
-                dataGridViewGraphyks_URI.Columns[i].Width = 50;
+                dataGridViewGraphyks_URI.Columns[i].Width = 100;
             }
-            for (int r = 0; r < rows; r++)
+            for (int i = 0; i < rows; i++)
             {
-                for (int c = 0; c < columns; c++)
+                for (int j = 0; j < columns; j++)
                 {
-                    dataGridViewGraphyks_URI.Rows[r].Cells[c].Value = matrix[r, c];
+                    dataGridViewGraphyks_URI.Rows[i].Cells[j].Value = matrix[i, j];
                 }
             }
-            matrix = ds.GetMatrix(LoadFromData(openFile));
-            //
         }
 
         private void сохранитьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
-            saveFileDialog_URI.FileName = "OutPutFileTask7.csv";
-            saveFileDialog_URI.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialog_URI.FileName = ".xlx";
+            saveFileDialog_URI.InitialDirectory = @":C";
             saveFileDialog_URI.ShowDialog();
             string path = saveFileDialog_URI.FileName;
             FileInfo fileInfo = new FileInfo(path);
@@ -106,5 +81,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 File.Delete(path);
             }
         }
+
     }
 }

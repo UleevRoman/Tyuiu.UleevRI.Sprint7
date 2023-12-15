@@ -83,7 +83,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
             this.MenuStrip_URI.TabIndex = 9;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
@@ -111,14 +111,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // открытьToolStripMenuItemGraphyks_URI
             // 
             this.открытьToolStripMenuItemGraphyks_URI.Name = "открытьToolStripMenuItemGraphyks_URI";
-            this.открытьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(166, 26);
+            this.открытьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(224, 26);
             this.открытьToolStripMenuItemGraphyks_URI.Text = "Открыть";
             this.открытьToolStripMenuItemGraphyks_URI.Click += new System.EventHandler(this.открытьToolStripMenuItemGraphyks_URI_Click);
             // 
             // сохранитьToolStripMenuItemGraphyks_URI
             // 
             this.сохранитьToolStripMenuItemGraphyks_URI.Name = "сохранитьToolStripMenuItemGraphyks_URI";
-            this.сохранитьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(166, 26);
+            this.сохранитьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(224, 26);
             this.сохранитьToolStripMenuItemGraphyks_URI.Text = "Сохранить";
             this.сохранитьToolStripMenuItemGraphyks_URI.Click += new System.EventHandler(this.сохранитьToolStripMenuItemGraphyks_URI_Click);
             // 
@@ -186,7 +186,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.dataGridViewGraphyks_URI.RowHeadersVisible = false;
             this.dataGridViewGraphyks_URI.RowHeadersWidth = 51;
             this.dataGridViewGraphyks_URI.RowTemplate.Height = 24;
-            this.dataGridViewGraphyks_URI.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.dataGridViewGraphyks_URI.Size = new System.Drawing.Size(769, 459);
             this.dataGridViewGraphyks_URI.TabIndex = 0;
             // 
