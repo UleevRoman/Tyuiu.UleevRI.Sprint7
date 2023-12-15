@@ -46,6 +46,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         DataService ds = new DataService();
         private void открытьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
+            /*
             openFileDialog_URI.ShowDialog();
             openFile = openFileDialog_URI.FileName;
 
@@ -66,10 +67,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     dataGridViewGraphyks_URI.Rows[i].Cells[j].Value = matrix[i, j];
                 }
             }
+            */
         }
 
         private void сохранитьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
+            /*
             saveFileDialog_URI.FileName = ".xlx";
             saveFileDialog_URI.InitialDirectory = @":C";
             saveFileDialog_URI.ShowDialog();
@@ -80,7 +83,59 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             {
                 File.Delete(path);
             }
+            */
         }
 
+        private void buttonOpenFile_URI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                openFileDialog_URI.ShowDialog();
+                openFile = openFileDialog_URI.FileName;
+
+                string[,] matrix = ds.LoadFromDataFile(openFile);
+                rows = matrix.GetLength(0);
+                columns = matrix.GetLength(1);
+                dataGridViewGraphyks_URI.RowCount = 100;
+                dataGridViewGraphyks_URI.ColumnCount = 100;
+
+                for (int i = 0; i < rows; i++)
+                {
+                    dataGridViewGraphyks_URI.Columns[i].Width = 100;
+                }
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        dataGridViewGraphyks_URI.Rows[i].Cells[j].Value = matrix[i, j];
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonSaveFile_URI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                saveFileDialog_URI.FileName = ".lsx";
+                saveFileDialog_URI.InitialDirectory = @":C";
+                saveFileDialog_URI.ShowDialog();
+                string path = saveFileDialog_URI.FileName;
+                FileInfo fileInfo = new FileInfo(path);
+                bool fileExists = fileInfo.Exists;
+                if (fileExists)
+                {
+                    File.Delete(path);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

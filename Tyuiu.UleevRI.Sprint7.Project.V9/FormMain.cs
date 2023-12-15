@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Data;
 using Tyuiu.UleevRI.Sprint7.Project.V9.Lib;
 
 namespace Tyuiu.UleevRI.Sprint7.Project.V9
@@ -48,39 +47,53 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         DataService ds = new DataService();
         private void открытьToolStripMenuItemFile_URI_Click(object sender, EventArgs e)
         {
-            openFileDialog_URI.ShowDialog();
-            openFile = openFileDialog_URI.FileName;
-
-            string[,] matrix = ds.LoadFromDataFile(openFile);
-            rows = matrix.GetLength(0);
-            columns = matrix.GetLength(1);
-            dataGridViewOpenFile_URI.RowCount = 20;
-            dataGridViewOpenFile_URI.ColumnCount = 20;
-
-            for (int i = 0; i < rows; i++)
+            try
             {
-                dataGridViewOpenFile_URI.Columns[i].Width = 135;
-            }
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
+                openFileDialog_URI.ShowDialog();
+                openFile = openFileDialog_URI.FileName;
+
+                string[,] matrix = ds.LoadFromDataFile(openFile);
+                rows = matrix.GetLength(0);
+                columns = matrix.GetLength(1);
+                dataGridViewOpenFile_URI.RowCount = 20;
+                dataGridViewOpenFile_URI.ColumnCount = 20;
+
+                for (int i = 0; i < rows; i++)
                 {
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Value = matrix[i, j];
+                    dataGridViewOpenFile_URI.Columns[i].Width = 135;
                 }
+                for (int i = 0; i < rows; i++)
+                {
+                    for (int j = 0; j < columns; j++)
+                    {
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Value = matrix[i, j];
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void сохранитьToolStripMenuItemFile_URI_Click(object sender, EventArgs e)
         {
-            saveFileDialog_URI.FileName = ".csv";
-            saveFileDialog_URI.InitialDirectory = @":C";
-            saveFileDialog_URI.ShowDialog();
-            string path = saveFileDialog_URI.FileName;
-            FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
-            if (fileExists)
+            try
             {
-                File.Delete(path);
+                saveFileDialog_URI.FileName = ".csv";
+                saveFileDialog_URI.InitialDirectory = @":C";
+                saveFileDialog_URI.ShowDialog();
+                string path = saveFileDialog_URI.FileName;
+                FileInfo fileInfo = new FileInfo(path);
+                bool fileExists = fileInfo.Exists;
+                if (fileExists)
+                {
+                    File.Delete(path);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

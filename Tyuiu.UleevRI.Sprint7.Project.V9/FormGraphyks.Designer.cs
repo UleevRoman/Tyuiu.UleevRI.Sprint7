@@ -83,19 +83,19 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
             this.MenuStrip_URI.TabIndex = 9;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
             // 
             // toolStripMenuItemBack_URI
             // 
             this.toolStripMenuItemBack_URI.Name = "toolStripMenuItemBack_URI";
-            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 24);
+            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 26);
             this.toolStripMenuItemBack_URI.Text = "Назад";
             this.toolStripMenuItemBack_URI.Click += new System.EventHandler(this.toolStripMenuItemBack_URI_Click);
             // 
@@ -105,7 +105,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.открытьToolStripMenuItemGraphyks_URI,
             this.сохранитьToolStripMenuItemGraphyks_URI});
             this.ToolStripMenuItemGraphyks_URI.Name = "ToolStripMenuItemGraphyks_URI";
-            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 24);
+            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 26);
             this.ToolStripMenuItemGraphyks_URI.Text = "Графики";
             // 
             // открытьToolStripMenuItemGraphyks_URI
@@ -127,7 +127,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGuied_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItemGuied_URI});
             this.ToolStripMenuItemGuied_URI.Name = "ToolStripMenuItemGuied_URI";
-            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 24);
+            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 26);
             this.ToolStripMenuItemGuied_URI.Text = "Краткое руководство";
             // 
             // открытьToolStripMenuItemGuied_URI
@@ -140,7 +140,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -199,8 +199,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonOpenFile_URI.Name = "buttonOpenFile_URI";
             this.buttonOpenFile_URI.Size = new System.Drawing.Size(63, 54);
             this.buttonOpenFile_URI.TabIndex = 1;
-            this.toolTipOpenFile_URI.SetToolTip(this.buttonOpenFile_URI, "Выбрать файл");
+            this.toolTipOpenFile_URI.SetToolTip(this.buttonOpenFile_URI, "Выбрать файл в виде таблицы данных");
             this.buttonOpenFile_URI.UseVisualStyleBackColor = false;
+            this.buttonOpenFile_URI.Click += new System.EventHandler(this.buttonOpenFile_URI_Click);
             // 
             // buttonSaveFile_URI
             // 
@@ -212,8 +213,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonSaveFile_URI.Name = "buttonSaveFile_URI";
             this.buttonSaveFile_URI.Size = new System.Drawing.Size(63, 54);
             this.buttonSaveFile_URI.TabIndex = 2;
-            this.toolTipSaveFile_URI.SetToolTip(this.buttonSaveFile_URI, "Сохранить файл");
+            this.toolTipSaveFile_URI.SetToolTip(this.buttonSaveFile_URI, "Сохранить файл в виде таблицы данных");
             this.buttonSaveFile_URI.UseVisualStyleBackColor = false;
+            this.buttonSaveFile_URI.Click += new System.EventHandler(this.buttonSaveFile_URI_Click);
             // 
             // panelMenu_URI
             // 
