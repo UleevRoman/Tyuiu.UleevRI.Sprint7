@@ -126,14 +126,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // открытьToolStripMenuItemFile_URI
             // 
             this.открытьToolStripMenuItemFile_URI.Name = "открытьToolStripMenuItemFile_URI";
-            this.открытьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(224, 26);
+            this.открытьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(166, 26);
             this.открытьToolStripMenuItemFile_URI.Text = "Открыть";
             this.открытьToolStripMenuItemFile_URI.Click += new System.EventHandler(this.открытьToolStripMenuItemFile_URI_Click);
             // 
             // сохранитьToolStripMenuItemFile_URI
             // 
             this.сохранитьToolStripMenuItemFile_URI.Name = "сохранитьToolStripMenuItemFile_URI";
-            this.сохранитьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItemFile_URI.Text = "Сохранить";
             this.сохранитьToolStripMenuItemFile_URI.Click += new System.EventHandler(this.сохранитьToolStripMenuItemFile_URI_Click);
             // 

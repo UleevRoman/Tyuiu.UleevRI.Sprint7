@@ -43,6 +43,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.panelActions_URI = new System.Windows.Forms.Panel();
+            this.buttonDelete_URI = new System.Windows.Forms.Button();
             this.dataGridViewGraphyks_URI = new System.Windows.Forms.DataGridView();
             this.buttonOpenFile_URI = new System.Windows.Forms.Button();
             this.buttonSaveFile_URI = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolTipSaveFile_URI = new System.Windows.Forms.ToolTip(this.components);
             this.openFileDialog_URI = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog_URI = new System.Windows.Forms.SaveFileDialog();
-            this.buttonDelete_URI = new System.Windows.Forms.Button();
             this.panelHelp_URI.SuspendLayout();
             this.MenuStrip_URI.SuspendLayout();
             this.panelActions_URI.SuspendLayout();
@@ -111,14 +111,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // открытьToolStripMenuItemGraphyks_URI
             // 
             this.открытьToolStripMenuItemGraphyks_URI.Name = "открытьToolStripMenuItemGraphyks_URI";
-            this.открытьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(224, 26);
+            this.открытьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(166, 26);
             this.открытьToolStripMenuItemGraphyks_URI.Text = "Открыть";
             this.открытьToolStripMenuItemGraphyks_URI.Click += new System.EventHandler(this.открытьToolStripMenuItemGraphyks_URI_Click);
             // 
             // сохранитьToolStripMenuItemGraphyks_URI
             // 
             this.сохранитьToolStripMenuItemGraphyks_URI.Name = "сохранитьToolStripMenuItemGraphyks_URI";
-            this.сохранитьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItemGraphyks_URI.Text = "Сохранить";
             this.сохранитьToolStripMenuItemGraphyks_URI.Click += new System.EventHandler(this.сохранитьToolStripMenuItemGraphyks_URI_Click);
             // 
@@ -163,6 +163,18 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelActions_URI.Name = "panelActions_URI";
             this.panelActions_URI.Size = new System.Drawing.Size(1131, 614);
             this.panelActions_URI.TabIndex = 5;
+            // 
+            // buttonDelete_URI
+            // 
+            this.buttonDelete_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonDelete_URI.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonDelete_URI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDelete_URI.Location = new System.Drawing.Point(16, 513);
+            this.buttonDelete_URI.Name = "buttonDelete_URI";
+            this.buttonDelete_URI.Size = new System.Drawing.Size(158, 43);
+            this.buttonDelete_URI.TabIndex = 7;
+            this.buttonDelete_URI.Text = "Удалить";
+            this.buttonDelete_URI.UseVisualStyleBackColor = false;
             // 
             // dataGridViewGraphyks_URI
             // 
@@ -258,18 +270,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // openFileDialog_URI
             // 
             this.openFileDialog_URI.FileName = "openFileDialog_URI";
-            // 
-            // buttonDelete_URI
-            // 
-            this.buttonDelete_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonDelete_URI.BackColor = System.Drawing.Color.DarkOrange;
-            this.buttonDelete_URI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelete_URI.Location = new System.Drawing.Point(27, 505);
-            this.buttonDelete_URI.Name = "buttonDelete_URI";
-            this.buttonDelete_URI.Size = new System.Drawing.Size(158, 43);
-            this.buttonDelete_URI.TabIndex = 7;
-            this.buttonDelete_URI.Text = "Удалить";
-            this.buttonDelete_URI.UseVisualStyleBackColor = false;
             // 
             // FormGraphyks
             // 

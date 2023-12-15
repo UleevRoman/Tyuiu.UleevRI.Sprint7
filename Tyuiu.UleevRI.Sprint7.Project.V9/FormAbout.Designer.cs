@@ -60,7 +60,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // buttonOK_URI
             // 
             this.buttonOK_URI.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonOK_URI.Location = new System.Drawing.Point(791, 454);
+            this.buttonOK_URI.Location = new System.Drawing.Point(801, 454);
             this.buttonOK_URI.Name = "buttonOK_URI";
             this.buttonOK_URI.Size = new System.Drawing.Size(87, 40);
             this.buttonOK_URI.TabIndex = 2;
