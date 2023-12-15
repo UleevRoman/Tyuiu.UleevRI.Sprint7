@@ -90,6 +90,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 }
             }
             matrix = ds.GetMatrix(LoadFromData(openFile));
+            //
         }
 
         private void сохранитьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
