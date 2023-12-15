@@ -83,7 +83,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
             this.MenuStrip_URI.TabIndex = 9;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
@@ -169,7 +169,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonDelete_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDelete_URI.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonDelete_URI.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelete_URI.Location = new System.Drawing.Point(16, 513);
+            this.buttonDelete_URI.Location = new System.Drawing.Point(16, 527);
             this.buttonDelete_URI.Name = "buttonDelete_URI";
             this.buttonDelete_URI.Size = new System.Drawing.Size(158, 43);
             this.buttonDelete_URI.TabIndex = 7;

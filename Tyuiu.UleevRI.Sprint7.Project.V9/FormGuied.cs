@@ -18,8 +18,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         public FormGuied()
         {
             InitializeComponent();
-            //
-            //
         }
 
         private void toolStripMenuItemHelp_URI_Click(object sender, EventArgs e)
