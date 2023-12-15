@@ -34,7 +34,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
         }
 
-        private void открытьToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void открытьToolStripMenuItemGuied_URI_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormGuied formGuied = new FormGuied();
@@ -45,7 +45,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         static int rows;
         static int columns;
         DataService ds = new DataService();
-        public int[,] LoadFromData(string path)
+        public string[,] LoadFromData(string path)
         {
             string file = File.ReadAllText(path);
             file = file.Replace('\n', '\r');
@@ -54,25 +54,25 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             rows = lines.Length;
             columns = lines[0].Split(';').Length;
 
-            int[,] array = new int[rows, columns];
+            string[,] array = new string[rows, columns];
 
             for (int i = 0; i < rows; i++)
             {
                 string[] line_mas = lines[i].Split(';');
                 for (int j = 0; j < columns; j++)
                 {
-                    array[i, j] = Convert.ToInt32(line_mas[j]);
+                    array[i, j] = Convert.ToString(line_mas[j]);
                 }
             }
             return array;
         }
 
-        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void открытьToolStripMenuItemFile_URI_Click(object sender, EventArgs e)
         {
             openFileDialog_URI.ShowDialog();
             openFile = openFileDialog_URI.FileName;
 
-            int[,] matrix = new int[rows, columns];
+            string[,] matrix = new string[rows, columns];
             matrix = LoadFromData(openFile);
 
             dataGridViewOpenFile_URI.RowCount = rows;
@@ -92,7 +92,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             matrix = ds.GetMatrix(LoadFromData(openFile));
         }
 
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void сохранитьToolStripMenuItemFile_URI_Click(object sender, EventArgs e)
         {
             saveFileDialog_URI.FileName = "OutPutFileTask7.csv";
             saveFileDialog_URI.InitialDirectory = Directory.GetCurrentDirectory();

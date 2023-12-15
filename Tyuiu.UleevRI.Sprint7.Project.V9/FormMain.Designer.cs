@@ -35,12 +35,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemFile_URI = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItemFile_URI = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItemFile_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemGraphyks_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.перейтиКРазделуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemGuied_URI = new System.Windows.Forms.ToolStripMenuItem();
-            this.открытьToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItemGuied_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.panelActions_URI = new System.Windows.Forms.Panel();
@@ -105,44 +105,44 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
             // 
             // ToolStripMenuItemFile_URI
             // 
             this.ToolStripMenuItemFile_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьToolStripMenuItem,
-            this.сохранитьToolStripMenuItem});
+            this.открытьToolStripMenuItemFile_URI,
+            this.сохранитьToolStripMenuItemFile_URI});
             this.ToolStripMenuItemFile_URI.Name = "ToolStripMenuItemFile_URI";
-            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 26);
+            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 24);
             this.ToolStripMenuItemFile_URI.Text = "Файл";
             // 
-            // открытьToolStripMenuItem
+            // открытьToolStripMenuItemFile_URI
             // 
-            this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
-            this.открытьToolStripMenuItem.Text = "Открыть";
-            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
+            this.открытьToolStripMenuItemFile_URI.Name = "открытьToolStripMenuItemFile_URI";
+            this.открытьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(224, 26);
+            this.открытьToolStripMenuItemFile_URI.Text = "Открыть";
+            this.открытьToolStripMenuItemFile_URI.Click += new System.EventHandler(this.открытьToolStripMenuItemFile_URI_Click);
             // 
-            // сохранитьToolStripMenuItem
+            // сохранитьToolStripMenuItemFile_URI
             // 
-            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
-            this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            this.сохранитьToolStripMenuItemFile_URI.Name = "сохранитьToolStripMenuItemFile_URI";
+            this.сохранитьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItemFile_URI.Text = "Сохранить";
+            this.сохранитьToolStripMenuItemFile_URI.Click += new System.EventHandler(this.сохранитьToolStripMenuItemFile_URI_Click);
             // 
             // ToolStripMenuItemGraphyks_URI
             // 
             this.ToolStripMenuItemGraphyks_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.перейтиКРазделуToolStripMenuItem});
             this.ToolStripMenuItemGraphyks_URI.Name = "ToolStripMenuItemGraphyks_URI";
-            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 26);
+            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 24);
             this.ToolStripMenuItemGraphyks_URI.Text = "Графики";
             // 
             // перейтиКРазделуToolStripMenuItem
@@ -155,22 +155,22 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // ToolStripMenuItemGuied_URI
             // 
             this.ToolStripMenuItemGuied_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.открытьToolStripMenuItem2});
+            this.открытьToolStripMenuItemGuied_URI});
             this.ToolStripMenuItemGuied_URI.Name = "ToolStripMenuItemGuied_URI";
-            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 26);
+            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 24);
             this.ToolStripMenuItemGuied_URI.Text = "Краткое руководство";
             // 
-            // открытьToolStripMenuItem2
+            // открытьToolStripMenuItemGuied_URI
             // 
-            this.открытьToolStripMenuItem2.Name = "открытьToolStripMenuItem2";
-            this.открытьToolStripMenuItem2.Size = new System.Drawing.Size(150, 26);
-            this.открытьToolStripMenuItem2.Text = "Открыть";
-            this.открытьToolStripMenuItem2.Click += new System.EventHandler(this.открытьToolStripMenuItem2_Click);
+            this.открытьToolStripMenuItemGuied_URI.Name = "открытьToolStripMenuItemGuied_URI";
+            this.открытьToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(150, 26);
+            this.открытьToolStripMenuItemGuied_URI.Text = "Открыть";
+            this.открытьToolStripMenuItemGuied_URI.Click += new System.EventHandler(this.открытьToolStripMenuItemGuied_URI_Click);
             // 
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -523,13 +523,13 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.OpenFileDialog openFileDialog_URI;
         private System.Windows.Forms.DataGridView dataGridViewOpenFile_URI;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemFile_URI;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItemFile_URI;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItemFile_URI;
         private System.Windows.Forms.SaveFileDialog saveFileDialog_URI;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemGraphyks_URI;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemGuied_URI;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemHelp_URI;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItemGuied_URI;
         private System.Windows.Forms.Panel panelMenu_URI;
         private System.Windows.Forms.ToolStripMenuItem перейтиКРазделуToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBoxSearch_URI;
