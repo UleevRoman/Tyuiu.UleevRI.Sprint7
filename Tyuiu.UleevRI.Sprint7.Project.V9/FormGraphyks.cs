@@ -46,43 +46,37 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         DataService ds = new DataService();
         private void открытьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
-            /*
             openFileDialog_URI.ShowDialog();
             openFile = openFileDialog_URI.FileName;
 
             string[,] matrix = ds.LoadFromDataFile(openFile);
             rows = matrix.GetLength(0);
             columns = matrix.GetLength(1);
-            dataGridViewGraphyks_URI.RowCount = 100;
-            dataGridViewGraphyks_URI.ColumnCount = 100;
+            this.chartFunction_URI.ChartAreas[0].AxisX.Title = "Ось X";
+            this.chartFunction_URI.ChartAreas[0].AxisY.Title = "Ось Y";
 
-            for (int i = 0; i < rows; i++)
-            {
-                dataGridViewGraphyks_URI.Columns[i].Width = 100;
-            }
-            for (int i = 0; i < rows; i++)
+            for (int i = 1; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    dataGridViewGraphyks_URI.Rows[i].Cells[j].Value = matrix[i, j];
+                    if (j == 2)
+                    {
+                        this.chartFunction_URI.Series[0].Points.AddXY(matrix[i, 0], matrix[i, j]);
+                    }
                 }
             }
-            */
         }
 
         private void сохранитьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
             /*
-            saveFileDialog_URI.FileName = ".xlx";
+            chartFunction_URI.FilName = "xlx";
             saveFileDialog_URI.InitialDirectory = @":C";
             saveFileDialog_URI.ShowDialog();
             string path = saveFileDialog_URI.FileName;
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
-            if (fileExists)
-            {
-                File.Delete(path);
-            }
+            if (fileExists) File.Delete(path);
             */
         }
 
