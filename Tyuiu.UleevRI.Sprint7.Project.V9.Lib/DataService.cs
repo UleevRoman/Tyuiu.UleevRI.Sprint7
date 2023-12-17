@@ -11,7 +11,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9.Lib
     {
         public string[,] LoadFromDataFile (string path)
         {
-            string[] num = File.ReadAllLines(path);
+            string[] num = File.ReadAllLines(path, Encoding.GetEncoding(1251));
             int columns = num[0].Split(';').Length;
             int rows = num.Length;
             string[,] matrix = new string[rows, columns];

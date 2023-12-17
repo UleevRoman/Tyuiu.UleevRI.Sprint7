@@ -39,31 +39,45 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             FormMain formMain = new FormMain();
             formMain.Show();
         }
-        
+
+        private void FormGraphyks_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMain formMain = new FormMain();
+            formMain.Show();
+        }
+
         static string openFile;
         static int rows;
         static int columns;
         DataService ds = new DataService();
         private void открытьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
-            openFileDialog_URI.ShowDialog();
-            openFile = openFileDialog_URI.FileName;
-
-            string[,] matrix = ds.LoadFromDataFile(openFile);
-            rows = matrix.GetLength(0);
-            columns = matrix.GetLength(1);
-            this.chartFunction_URI.ChartAreas[0].AxisX.Title = "Ось X";
-            this.chartFunction_URI.ChartAreas[0].AxisY.Title = "Ось Y";
-
-            for (int i = 1; i < rows; i++)
+            try
             {
-                for (int j = 0; j < columns; j++)
+                openFileDialog_URI.ShowDialog();
+                openFile = openFileDialog_URI.FileName;
+
+                string[,] matrix = ds.LoadFromDataFile(openFile);
+                rows = matrix.GetLength(0);
+                columns = matrix.GetLength(1);
+                this.chartFunction_URI.ChartAreas[0].AxisX.Title = "Ось X";
+                this.chartFunction_URI.ChartAreas[0].AxisY.Title = "Ось Y";
+
+                for (int i = 1; i < rows; i++)
                 {
-                    if (j == 2)
+                    for (int j = 0; j < columns; j++)
                     {
-                        this.chartFunction_URI.Series[0].Points.AddXY(matrix[i, 0], matrix[i, j]);
+                        if (j == 2)
+                        {
+                            this.chartFunction_URI.Series[0].Points.AddXY(matrix[i, 0], matrix[i, j]);
+                        }
                     }
                 }
+            }
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -90,12 +104,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 string[,] matrix = ds.LoadFromDataFile(openFile);
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
-                dataGridViewGraphyks_URI.RowCount = 100;
-                dataGridViewGraphyks_URI.ColumnCount = 100;
+                dataGridViewGraphyks_URI.RowCount = 250;
+                dataGridViewGraphyks_URI.ColumnCount = 50;
 
                 for (int i = 0; i < rows; i++)
                 {
-                    dataGridViewGraphyks_URI.Columns[i].Width = 100;
+                    dataGridViewGraphyks_URI.Columns[i].Width = 135;
                 }
                 for (int i = 0; i < rows; i++)
                 {
@@ -131,5 +145,17 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dataGridViewOpenFile_URI_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Tab && dataGridViewGraphyks_URI.CurrentCell.ColumnIndex == 1)
+            {
+                e.Handled = true;
+                DataGridViewCell cell = dataGridViewGraphyks_URI.Rows[0].Cells[0];
+                dataGridViewGraphyks_URI.CurrentCell = cell;
+                dataGridViewGraphyks_URI.BeginEdit(true);
+            }
+        }
+
     }
 }

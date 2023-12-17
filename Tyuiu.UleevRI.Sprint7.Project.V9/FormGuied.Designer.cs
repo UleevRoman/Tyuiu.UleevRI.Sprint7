@@ -126,6 +126,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.Name = "FormGuied";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Краткое руководство";
+            this.Load += new System.EventHandler(this.FormGuied_Load);
             this.panelHelp_URI.ResumeLayout(false);
             this.panelHelp_URI.PerformLayout();
             this.MenuStrip_URI.ResumeLayout(false);

@@ -17,7 +17,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         public FormMain()
         {
             InitializeComponent();
-            openFileDialog_URI.Filter = "Значения, разделенные запятыми(*.csv)|*.csv|Всефайлы(*.*)|*.*";
+            //openFileDialog_URI.Filter = "Значения, разделенные запятыми(*.csv)|*.csv|Всефайлы(*.*)|*.*";
         }
 
         private void toolStripMenuItemHelp_URI_Click(object sender, EventArgs e)
@@ -44,6 +44,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         static string openFile;
         static int rows;
         static int columns;
+        static string[,] matrix;
         DataService ds = new DataService();
         private void открытьToolStripMenuItemFile_URI_Click(object sender, EventArgs e)
         {
@@ -52,11 +53,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 openFileDialog_URI.ShowDialog();
                 openFile = openFileDialog_URI.FileName;
 
-                string[,] matrix = ds.LoadFromDataFile(openFile);
+                matrix = ds.LoadFromDataFile(openFile);
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
-                dataGridViewOpenFile_URI.RowCount = 20;
-                dataGridViewOpenFile_URI.ColumnCount = 20;
+                dataGridViewOpenFile_URI.RowCount = 250;
+                dataGridViewOpenFile_URI.ColumnCount = 50;
 
                 for (int i = 0; i < rows; i++)
                 {
@@ -67,6 +68,13 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     for (int j = 0; j < columns; j++)
                     {
                         dataGridViewOpenFile_URI.Rows[i].Cells[j].Value = matrix[i, j];
+                    }
+                }
+                for (int i = 0; i <= dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j <= dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
                     }
                 }
             }
@@ -94,6 +102,29 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             catch
             {
                 MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxSearch_URI_KeyUp(object sender, KeyEventArgs e)
+        {
+            for (int i = 0; i <= dataGridViewOpenFile_URI.RowCount - 1; i++)
+            {
+                for (int j = 0; j <= dataGridViewOpenFile_URI.ColumnCount - 1; j++) dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+            }
+            if (e.KeyCode == Keys.Enter)
+            {
+                for (int i = 0; i <= dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j <= dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                        {
+                            string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[j].Value.ToString().ToLower();
+                            if (elmnt.Contains(textBoxSearch_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = true;
+                        }
+                    }
+                    //if (dataGridViewOpenFile_URI.Rows[i].Selected == false) dataGridViewOpenFile_URI.Rows.RemoveAt(i);
+                }
             }
         }
     }
