@@ -145,17 +145,5 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void dataGridViewOpenFile_URI_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Tab && dataGridViewGraphyks_URI.CurrentCell.ColumnIndex == 1)
-            {
-                e.Handled = true;
-                DataGridViewCell cell = dataGridViewGraphyks_URI.Rows[0].Cells[0];
-                dataGridViewGraphyks_URI.CurrentCell = cell;
-                dataGridViewGraphyks_URI.BeginEdit(true);
-            }
-        }
-
     }
 }

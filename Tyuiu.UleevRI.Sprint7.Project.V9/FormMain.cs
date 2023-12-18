@@ -114,44 +114,47 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
         private void textBoxSearch_URI_KeyUp(object sender, KeyEventArgs e)
         {
-            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-            {
-                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                {
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
-                }
-            }
-            if (e.KeyCode == Keys.Enter)
+            if (dataGridViewOpenFile_URI.RowCount != 0)
             {
                 for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                 {
                     for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
                     {
-                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                    }
+                }
+                if (e.KeyCode == Keys.Enter)
+                {
+                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                    {
+                        for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
                         {
-                            string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[j].Value.ToString().ToLower();
-                            if (elmnt.Contains(textBoxSearch_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = true;
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                            {
+                                string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[j].Value.ToString().ToLower();
+                                if (elmnt.Contains(textBoxSearch_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = true;
+                            }
+                        }
+                    }
+
+                    int clear = 0;
+                    for (int r = 1; r < dataGridViewOpenFile_URI.RowCount - 1; r++)
+                    {
+                        for (int c = 0; c < dataGridViewOpenFile_URI.ColumnCount - 1; c++)
+                        {
+                            if (dataGridViewOpenFile_URI.Rows[r].Cells[c].Selected == true) clear += 1;
+                        }
+                        if (clear == 0) dataGridViewOpenFile_URI.Rows[r].Visible = false;
+                        else
+                        {
+                            dataGridViewOpenFile_URI.Rows[r].Visible = true;
+                            clear = 0;
                         }
                     }
                 }
-
-                int clear = 0;
-                for (int r = 1; r < dataGridViewOpenFile_URI.RowCount - 1; r++)
-                {
-                    for (int c = 0; c < dataGridViewOpenFile_URI.ColumnCount - 1; c++)
-                    {
-                        if (dataGridViewOpenFile_URI.Rows[r].Cells[c].Selected == true) clear += 1;
-                    }
-                    if (clear == 0) dataGridViewOpenFile_URI.Rows[r].Visible = false;
-                    else
-                    {
-                        dataGridViewOpenFile_URI.Rows[r].Visible = true;
-                        clear = 0;
-                    }
-                }
             }
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
 
         private void textBoxSearch_URI_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -167,22 +170,30 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
         private void buttonDelete_URI_Click(object sender, EventArgs e)
         {
-            /*
-            int clear = 0;
-            for (int r = 1; r < dataGridViewOpenFile_URI.RowCount - 1; r++)
+            if (dataGridViewOpenFile_URI.RowCount != 0)
             {
-                for (int c = 0; c < dataGridViewOpenFile_URI.ColumnCount - 1; c++)
+                int konechno = 0;
+                var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) konechno = 1;
+                if (konechno == 1)
                 {
-                    if (dataGridViewOpenFile_URI.Rows[r].Cells[c].Selected == true) clear += 1;
-                }
-                if (clear == 0) dataGridViewOpenFile_URI.Rows[r].Visible = false;
-                else
-                {
-                    dataGridViewOpenFile_URI.Rows[r].Visible = true;
-                    clear = 0;
+                    int a = dataGridViewOpenFile_URI.CurrentCell.RowIndex;
+                    dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[a]);
                 }
             }
-            */
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void buttonAdd_URI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridViewOpenFile_URI.Rows.Add();
+            }
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

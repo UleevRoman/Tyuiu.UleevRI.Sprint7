@@ -30,7 +30,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,8 +45,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelActions_URI = new System.Windows.Forms.Panel();
             this.textBoxSearch_URI = new System.Windows.Forms.TextBox();
             this.labelSearch_URI = new System.Windows.Forms.Label();
-            this.buttonGo_URI = new System.Windows.Forms.Button();
-            this.buttonBack_URI = new System.Windows.Forms.Button();
             this.buttonAdd_URI = new System.Windows.Forms.Button();
             this.groupBoxStatictic_URI = new System.Windows.Forms.GroupBox();
             this.labelMaxValue_URI = new System.Windows.Forms.Label();
@@ -69,10 +66,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.openFileDialog_URI = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog_URI = new System.Windows.Forms.SaveFileDialog();
             this.panelMenu_URI = new System.Windows.Forms.Panel();
-            this.toolTipBack_URI = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipGo_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipDelete_URI = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipRedact_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipAdd_URI = new System.Windows.Forms.ToolTip(this.components);
             this.panelHelp_URI.SuspendLayout();
             this.MenuStrip_URI.SuspendLayout();
@@ -188,8 +182,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelActions_URI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panelActions_URI.Controls.Add(this.textBoxSearch_URI);
             this.panelActions_URI.Controls.Add(this.labelSearch_URI);
-            this.panelActions_URI.Controls.Add(this.buttonGo_URI);
-            this.panelActions_URI.Controls.Add(this.buttonBack_URI);
             this.panelActions_URI.Controls.Add(this.buttonAdd_URI);
             this.panelActions_URI.Controls.Add(this.groupBoxStatictic_URI);
             this.panelActions_URI.Controls.Add(this.buttonDelete_URI);
@@ -223,26 +215,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.labelSearch_URI.TabIndex = 11;
             this.labelSearch_URI.Text = "Поиск:";
             // 
-            // buttonGo_URI
-            // 
-            this.buttonGo_URI.Image = ((System.Drawing.Image)(resources.GetObject("buttonGo_URI.Image")));
-            this.buttonGo_URI.Location = new System.Drawing.Point(110, 446);
-            this.buttonGo_URI.Name = "buttonGo_URI";
-            this.buttonGo_URI.Size = new System.Drawing.Size(63, 37);
-            this.buttonGo_URI.TabIndex = 10;
-            this.toolTipGo_URI.SetToolTip(this.buttonGo_URI, "Вернуть действие");
-            this.buttonGo_URI.UseVisualStyleBackColor = true;
-            // 
-            // buttonBack_URI
-            // 
-            this.buttonBack_URI.Image = ((System.Drawing.Image)(resources.GetObject("buttonBack_URI.Image")));
-            this.buttonBack_URI.Location = new System.Drawing.Point(14, 446);
-            this.buttonBack_URI.Name = "buttonBack_URI";
-            this.buttonBack_URI.Size = new System.Drawing.Size(63, 37);
-            this.buttonBack_URI.TabIndex = 9;
-            this.toolTipBack_URI.SetToolTip(this.buttonBack_URI, "Отменить действие");
-            this.buttonBack_URI.UseVisualStyleBackColor = true;
-            // 
             // buttonAdd_URI
             // 
             this.buttonAdd_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -255,6 +227,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonAdd_URI.Text = "Добавить";
             this.toolTipAdd_URI.SetToolTip(this.buttonAdd_URI, "Добавить строку");
             this.buttonAdd_URI.UseVisualStyleBackColor = false;
+            this.buttonAdd_URI.Click += new System.EventHandler(this.buttonAdd_URI_Click);
             // 
             // groupBoxStatictic_URI
             // 
@@ -378,7 +351,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.groupBoxFilter_URI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.groupBoxFilter_URI.Controls.Add(this.comboBoxFilter_URI);
             this.groupBoxFilter_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBoxFilter_URI.Location = new System.Drawing.Point(934, 230);
+            this.groupBoxFilter_URI.Location = new System.Drawing.Point(935, 245);
             this.groupBoxFilter_URI.Name = "groupBoxFilter_URI";
             this.groupBoxFilter_URI.Size = new System.Drawing.Size(241, 104);
             this.groupBoxFilter_URI.TabIndex = 4;
@@ -426,7 +399,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.dataGridViewOpenFile_URI.RowHeadersVisible = false;
             this.dataGridViewOpenFile_URI.RowHeadersWidth = 51;
             this.dataGridViewOpenFile_URI.RowTemplate.Height = 24;
-            this.dataGridViewOpenFile_URI.Size = new System.Drawing.Size(913, 373);
+            this.dataGridViewOpenFile_URI.Size = new System.Drawing.Size(913, 400);
             this.dataGridViewOpenFile_URI.TabIndex = 0;
             // 
             // openFileDialog_URI
@@ -441,14 +414,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelMenu_URI.Name = "panelMenu_URI";
             this.panelMenu_URI.Size = new System.Drawing.Size(32, 664);
             this.panelMenu_URI.TabIndex = 1;
-            // 
-            // toolTipBack_URI
-            // 
-            this.toolTipBack_URI.ToolTipTitle = "Подсказка";
-            // 
-            // toolTipGo_URI
-            // 
-            this.toolTipGo_URI.ToolTipTitle = "Подсказка";
             // 
             // FormMain
             // 
@@ -517,13 +482,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.TextBox textBoxMiddleValue_URI;
         private System.Windows.Forms.TextBox textBoxSum_URI;
         private System.Windows.Forms.TextBox textBoxQuantity_URI;
-        private System.Windows.Forms.Button buttonBack_URI;
-        private System.Windows.Forms.Button buttonGo_URI;
-        private System.Windows.Forms.ToolTip toolTipBack_URI;
-        private System.Windows.Forms.ToolTip toolTipGo_URI;
         private System.Windows.Forms.ToolTip toolTipAdd_URI;
         private System.Windows.Forms.ToolTip toolTipDelete_URI;
-        private System.Windows.Forms.ToolTip toolTipRedact_URI;
         private System.Windows.Forms.TextBox textBoxSearch_URI;
         private System.Windows.Forms.Label labelSearch_URI;
     }
