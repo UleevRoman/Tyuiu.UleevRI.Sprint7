@@ -61,7 +61,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxSum_URI = new System.Windows.Forms.TextBox();
             this.textBoxQuantity_URI = new System.Windows.Forms.TextBox();
             this.buttonDelete_URI = new System.Windows.Forms.Button();
-            this.buttonRedact_URI = new System.Windows.Forms.Button();
             this.groupBoxFilter_URI = new System.Windows.Forms.GroupBox();
             this.comboBoxFilter_URI = new System.Windows.Forms.ComboBox();
             this.groupBoxSort_URI = new System.Windows.Forms.GroupBox();
@@ -105,14 +104,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
             // 
             // ToolStripMenuItemFile_URI
             // 
@@ -121,7 +120,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.сохранитьToolStripMenuItemFile_URI});
             this.ToolStripMenuItemFile_URI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToolStripMenuItemFile_URI.Name = "ToolStripMenuItemFile_URI";
-            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 24);
+            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 26);
             this.ToolStripMenuItemFile_URI.Text = "Файл";
             // 
             // открытьToolStripMenuItemFile_URI
@@ -143,7 +142,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGraphyks_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.перейтиКРазделуToolStripMenuItem});
             this.ToolStripMenuItemGraphyks_URI.Name = "ToolStripMenuItemGraphyks_URI";
-            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 24);
+            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 26);
             this.ToolStripMenuItemGraphyks_URI.Text = "Графики";
             // 
             // перейтиКРазделуToolStripMenuItem
@@ -158,7 +157,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGuied_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItemGuied_URI});
             this.ToolStripMenuItemGuied_URI.Name = "ToolStripMenuItemGuied_URI";
-            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 24);
+            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 26);
             this.ToolStripMenuItemGuied_URI.Text = "Краткое руководство";
             // 
             // открытьToolStripMenuItemGuied_URI
@@ -171,7 +170,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -194,7 +193,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelActions_URI.Controls.Add(this.buttonAdd_URI);
             this.panelActions_URI.Controls.Add(this.groupBoxStatictic_URI);
             this.panelActions_URI.Controls.Add(this.buttonDelete_URI);
-            this.panelActions_URI.Controls.Add(this.buttonRedact_URI);
             this.panelActions_URI.Controls.Add(this.groupBoxFilter_URI);
             this.panelActions_URI.Controls.Add(this.groupBoxSort_URI);
             this.panelActions_URI.Controls.Add(this.dataGridViewOpenFile_URI);
@@ -372,19 +370,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonDelete_URI.Text = "Удалить";
             this.toolTipDelete_URI.SetToolTip(this.buttonDelete_URI, "Удалить выделенную строку");
             this.buttonDelete_URI.UseVisualStyleBackColor = false;
-            // 
-            // buttonRedact_URI
-            // 
-            this.buttonRedact_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRedact_URI.BackColor = System.Drawing.Color.LightCoral;
-            this.buttonRedact_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRedact_URI.Location = new System.Drawing.Point(195, 441);
-            this.buttonRedact_URI.Name = "buttonRedact_URI";
-            this.buttonRedact_URI.Size = new System.Drawing.Size(158, 43);
-            this.buttonRedact_URI.TabIndex = 5;
-            this.buttonRedact_URI.Text = "Редактировать";
-            this.toolTipRedact_URI.SetToolTip(this.buttonRedact_URI, "Редактировать выделенную строку");
-            this.buttonRedact_URI.UseVisualStyleBackColor = false;
+            this.buttonDelete_URI.Click += new System.EventHandler(this.buttonDelete_URI_Click);
             // 
             // groupBoxFilter_URI
             // 
@@ -466,8 +452,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1219, 690);
             this.Controls.Add(this.panelActions_URI);
@@ -476,9 +462,10 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.Controls.Add(this.panelHelp_URI);
             this.MainMenuStrip = this.MenuStrip_URI;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1237, 737);
+            this.MinimumSize = new System.Drawing.Size(1237, 722);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Каталог видеоклипов";
             this.panelHelp_URI.ResumeLayout(false);
             this.panelHelp_URI.PerformLayout();
             this.MenuStrip_URI.ResumeLayout(false);
@@ -516,7 +503,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.GroupBox groupBoxSort_URI;
         private System.Windows.Forms.ComboBox comboBoxSort_URI;
         private System.Windows.Forms.Button buttonDelete_URI;
-        private System.Windows.Forms.Button buttonRedact_URI;
         private System.Windows.Forms.GroupBox groupBoxFilter_URI;
         private System.Windows.Forms.ComboBox comboBoxFilter_URI;
         private System.Windows.Forms.Button buttonAdd_URI;
