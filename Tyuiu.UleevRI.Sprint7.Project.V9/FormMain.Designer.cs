@@ -211,6 +211,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxSearch_URI.Name = "textBoxSearch_URI";
             this.textBoxSearch_URI.Size = new System.Drawing.Size(841, 27);
             this.textBoxSearch_URI.TabIndex = 12;
+            this.textBoxSearch_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyDown);
+            this.textBoxSearch_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_URI_KeyPress);
             this.textBoxSearch_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyUp);
             // 
             // labelSearch_URI
@@ -429,6 +431,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // dataGridViewOpenFile_URI
             // 
+            this.dataGridViewOpenFile_URI.AllowUserToAddRows = false;
+            this.dataGridViewOpenFile_URI.AllowUserToDeleteRows = false;
             this.dataGridViewOpenFile_URI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewOpenFile_URI.ColumnHeadersVisible = false;
             this.dataGridViewOpenFile_URI.Location = new System.Drawing.Point(14, 49);
