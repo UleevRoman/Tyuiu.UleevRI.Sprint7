@@ -47,53 +47,31 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             formMain.Show();
         }
 
-        static string openFile;
-        static int rows;
-        static int columns;
-        DataService ds = new DataService();
-        private void открытьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
+        private void сохранитьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
         {
             try
             {
-                openFileDialog_URI.ShowDialog();
-                openFile = openFileDialog_URI.FileName;
-
-                string[,] matrix = ds.LoadFromDataFile(openFile);
-                rows = matrix.GetLength(0);
-                columns = matrix.GetLength(1);
-                this.chartFunction_URI.ChartAreas[0].AxisX.Title = "Ось X";
-                this.chartFunction_URI.ChartAreas[0].AxisY.Title = "Ось Y";
-
-                for (int i = 1; i < rows; i++)
+                saveFileDialog_URI.FileName = ".csv";
+                saveFileDialog_URI.InitialDirectory = @":C";
+                saveFileDialog_URI.ShowDialog();
+                string path = saveFileDialog_URI.FileName;
+                FileInfo fileInfo = new FileInfo(path);
+                bool fileExists = fileInfo.Exists;
+                if (fileExists)
                 {
-                    for (int j = 0; j < columns; j++)
-                    {
-                        if (j == 2)
-                        {
-                            this.chartFunction_URI.Series[0].Points.AddXY(matrix[i, 0], matrix[i, j]);
-                        }
-                    }
+                    File.Delete(path);
                 }
             }
             catch
             {
-                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void сохранитьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
-        {
-            /*
-            chartFunction_URI.FilName = "xlx";
-            saveFileDialog_URI.InitialDirectory = @":C";
-            saveFileDialog_URI.ShowDialog();
-            string path = saveFileDialog_URI.FileName;
-            FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
-            if (fileExists) File.Delete(path);
-            */
-        }
-
+        static string openFile;
+        static int rows;
+        static int columns;
+        DataService ds = new DataService();
         private void buttonOpenFile_URI_Click(object sender, EventArgs e)
         {
             try

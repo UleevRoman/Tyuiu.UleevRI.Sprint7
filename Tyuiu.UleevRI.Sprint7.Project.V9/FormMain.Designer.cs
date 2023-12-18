@@ -98,14 +98,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
             // 
             // ToolStripMenuItemFile_URI
             // 
@@ -114,21 +114,23 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.сохранитьToolStripMenuItemFile_URI});
             this.ToolStripMenuItemFile_URI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToolStripMenuItemFile_URI.Name = "ToolStripMenuItemFile_URI";
-            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 26);
+            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 24);
             this.ToolStripMenuItemFile_URI.Text = "Файл";
             // 
             // открытьToolStripMenuItemFile_URI
             // 
             this.открытьToolStripMenuItemFile_URI.Name = "открытьToolStripMenuItemFile_URI";
-            this.открытьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(166, 26);
+            this.открытьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(224, 26);
             this.открытьToolStripMenuItemFile_URI.Text = "Открыть";
+            this.открытьToolStripMenuItemFile_URI.ToolTipText = "Выбрать файл в csv формате";
             this.открытьToolStripMenuItemFile_URI.Click += new System.EventHandler(this.открытьToolStripMenuItemFile_URI_Click);
             // 
             // сохранитьToolStripMenuItemFile_URI
             // 
             this.сохранитьToolStripMenuItemFile_URI.Name = "сохранитьToolStripMenuItemFile_URI";
-            this.сохранитьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(166, 26);
+            this.сохранитьToolStripMenuItemFile_URI.Size = new System.Drawing.Size(224, 26);
             this.сохранитьToolStripMenuItemFile_URI.Text = "Сохранить";
+            this.сохранитьToolStripMenuItemFile_URI.ToolTipText = "Сохранить файл ";
             this.сохранитьToolStripMenuItemFile_URI.Click += new System.EventHandler(this.сохранитьToolStripMenuItemFile_URI_Click);
             // 
             // ToolStripMenuItemGraphyks_URI
@@ -136,7 +138,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGraphyks_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.перейтиКРазделуToolStripMenuItem});
             this.ToolStripMenuItemGraphyks_URI.Name = "ToolStripMenuItemGraphyks_URI";
-            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 26);
+            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 24);
             this.ToolStripMenuItemGraphyks_URI.Text = "Графики";
             // 
             // перейтиКРазделуToolStripMenuItem
@@ -151,7 +153,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGuied_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItemGuied_URI});
             this.ToolStripMenuItemGuied_URI.Name = "ToolStripMenuItemGuied_URI";
-            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 26);
+            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 24);
             this.ToolStripMenuItemGuied_URI.Text = "Краткое руководство";
             // 
             // открытьToolStripMenuItemGuied_URI
@@ -164,7 +166,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -365,6 +367,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.comboBoxFilter_URI.Name = "comboBoxFilter_URI";
             this.comboBoxFilter_URI.Size = new System.Drawing.Size(228, 31);
             this.comboBoxFilter_URI.TabIndex = 2;
+            this.comboBoxFilter_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_URI_KeyDown);
+            this.comboBoxFilter_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFilter_URI_KeyPress);
+            this.comboBoxFilter_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_URI_KeyUp);
             // 
             // groupBoxSort_URI
             // 
@@ -383,10 +388,16 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // comboBoxSort_URI
             // 
             this.comboBoxSort_URI.FormattingEnabled = true;
+            this.comboBoxSort_URI.Items.AddRange(new object[] {
+            "По возрастанию",
+            "По убыванию"});
             this.comboBoxSort_URI.Location = new System.Drawing.Point(7, 61);
             this.comboBoxSort_URI.Name = "comboBoxSort_URI";
             this.comboBoxSort_URI.Size = new System.Drawing.Size(228, 31);
             this.comboBoxSort_URI.TabIndex = 2;
+            this.comboBoxSort_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSort_URI_KeyDown);
+            this.comboBoxSort_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSort_URI_KeyPress);
+            this.comboBoxSort_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSort_URI_KeyUp);
             // 
             // dataGridViewOpenFile_URI
             // 
