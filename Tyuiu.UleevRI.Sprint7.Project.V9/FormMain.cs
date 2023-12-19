@@ -58,12 +58,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 columns = matrix.GetLength(1);
                 dataGridViewOpenFile_URI.RowCount = 250;
                 dataGridViewOpenFile_URI.ColumnCount = 50;
-                /*
+                
                 for (int i = 0; i < rows; i++)
                 {
-                    dataGridViewOpenFile_URI.Columns[i].Width = 50;
+                    //dataGridViewOpenFile_URI.Columns[i].Width = 50;
                 }
-                */
+                
                 for (int i = 0; i < rows; i++)
                 {
                     for (int j = 0; j < columns; j++)
@@ -86,13 +86,29 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             {
                 saveFileDialog_URI.FileName = ".csv";
                 saveFileDialog_URI.InitialDirectory = @":C";
-                saveFileDialog_URI.ShowDialog();
-                string path = saveFileDialog_URI.FileName;
-                FileInfo fileInfo = new FileInfo(path);
-                bool fileExists = fileInfo.Exists;
-                if (fileExists)
+                if (saveFileDialog_URI.ShowDialog() == DialogResult.OK)
                 {
-                    File.Delete(path);
+                    string savepath = saveFileDialog_URI.FileName;
+
+                    if (File.Exists(savepath)) File.Delete(savepath);
+
+                    int rows = dataGridViewOpenFile_URI.RowCount;
+                    int columns = dataGridViewOpenFile_URI.ColumnCount;
+
+                    StringBuilder strBuilder = new StringBuilder();
+
+                    for (int i = 0; i < rows; i++)
+                    {
+                        for (int j = 0; j < columns; j++)
+                        {
+                            strBuilder.Append(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value);
+
+                            if (j != columns - 1)strBuilder.Append(";");
+                        }
+                        strBuilder.AppendLine();
+                    }
+                    File.WriteAllText(savepath, strBuilder.ToString(), Encoding.GetEncoding(1251));
+                    MessageBox.Show("Файл успешно сохранен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
@@ -157,7 +173,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                 }
             }
-            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void textBoxSearch_URI_KeyPress(object sender, KeyPressEventArgs e)
@@ -209,7 +224,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         {
                             if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
                             {
-                                //DataGridViewColumn.SortedRows[i];
+                                
+                                //dataGridViewOpenFile_URI.Sort(dataGridViewOpenFile_URI.Columns[j], ListSortDirection.Descending);
+                               
                             }
                         }
                     }
@@ -219,7 +236,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     //
                 }
             }
-            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void textBoxSort_URI_KeyPress(object sender, KeyPressEventArgs e)
@@ -297,7 +313,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                 }
             }
-            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void textBoxFilter_URI_KeyPress(object sender, KeyPressEventArgs e)

@@ -71,6 +71,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         static string openFile;
         static int rows;
         static int columns;
+        static string[,] matrix;
         DataService ds = new DataService();
         private void buttonOpenFile_URI_Click(object sender, EventArgs e)
         {
@@ -79,23 +80,26 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 openFileDialog_URI.ShowDialog();
                 openFile = openFileDialog_URI.FileName;
 
-                string[,] matrix = ds.LoadFromDataFile(openFile);
+                matrix = ds.LoadFromDataFile(openFile);
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
-                dataGridViewGraphyks_URI.RowCount = 250;
-                dataGridViewGraphyks_URI.ColumnCount = 50;
+                dataGridViewOpenFile_URI.RowCount = 250;
+                dataGridViewOpenFile_URI.ColumnCount = 50;
 
                 for (int i = 0; i < rows; i++)
                 {
-                    dataGridViewGraphyks_URI.Columns[i].Width = 135;
+                    //dataGridViewOpenFile_URI.Columns[i].Width = 50;
                 }
+
                 for (int i = 0; i < rows; i++)
                 {
                     for (int j = 0; j < columns; j++)
                     {
-                        dataGridViewGraphyks_URI.Rows[i].Cells[j].Value = matrix[i, j];
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Value = matrix[i, j];
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
                     }
                 }
+                dataGridViewOpenFile_URI.AutoResizeColumns();
             }
             catch
             {
@@ -107,20 +111,64 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         {
             try
             {
-                saveFileDialog_URI.FileName = ".lsx";
+                saveFileDialog_URI.FileName = ".csv";
                 saveFileDialog_URI.InitialDirectory = @":C";
-                saveFileDialog_URI.ShowDialog();
-                string path = saveFileDialog_URI.FileName;
-                FileInfo fileInfo = new FileInfo(path);
-                bool fileExists = fileInfo.Exists;
-                if (fileExists)
+                if (saveFileDialog_URI.ShowDialog() == DialogResult.OK)
                 {
-                    File.Delete(path);
+                    string savepath = saveFileDialog_URI.FileName;
+
+                    if (File.Exists(savepath)) File.Delete(savepath);
+
+                    int rows = dataGridViewOpenFile_URI.RowCount;
+                    int columns = dataGridViewOpenFile_URI.ColumnCount;
+
+                    StringBuilder strBuilder = new StringBuilder();
+
+                    for (int i = 0; i < rows; i++)
+                    {
+                        for (int j = 0; j < columns; j++)
+                        {
+                            strBuilder.Append(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value);
+
+                            if (j != columns - 1) strBuilder.Append(";");
+                        }
+                        strBuilder.AppendLine();
+                    }
+                    File.WriteAllText(savepath, strBuilder.ToString(), Encoding.GetEncoding(1251));
+                    MessageBox.Show("Файл успешно сохранен", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch
             {
                 MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonDelete_URI_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOpenFile_URI.RowCount != 0)
+            {
+                int konechno = 0;
+                var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) konechno = 1;
+                if (konechno == 1)
+                {
+                    int a = dataGridViewOpenFile_URI.CurrentCell.RowIndex;
+                    dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[a]);
+                }
+            }
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void buttonAdd_URI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridViewOpenFile_URI.Rows.Add();
+            }
+            catch
+            {
+                MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
