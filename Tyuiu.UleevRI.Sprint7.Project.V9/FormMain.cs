@@ -200,7 +200,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             }
             if (e.KeyCode == Keys.Enter)
             {
-                //int seichas;
                 if (comboBoxSort_URI.Text == "По возрастанию")
                 {
                     for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
@@ -210,22 +209,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                             if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
                             {
                                 //DataGridViewColumn.SortedRows[i];
-                                //seichas = 1;
                             }
                         }
                     }
-                    /*
-                    if (seichas == 1)
-                    {
-                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                        {
-                            for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                            {
-
-                            }
-                        }
-                    }
-                    */
                 }
                 if (comboBoxSort_URI.Text == "По убыванию")
                 {
