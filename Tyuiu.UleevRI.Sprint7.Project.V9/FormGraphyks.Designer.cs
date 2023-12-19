@@ -30,9 +30,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGraphyks));
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
@@ -201,19 +201,19 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // chartFunction_URI
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartFunction_URI.ChartAreas.Add(chartArea2);
+            chartArea3.Name = "ChartArea1";
+            this.chartFunction_URI.ChartAreas.Add(chartArea3);
             this.chartFunction_URI.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chartFunction_URI.Legends.Add(legend2);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chartFunction_URI.Legends.Add(legend3);
             this.chartFunction_URI.Location = new System.Drawing.Point(0, 0);
             this.chartFunction_URI.Name = "chartFunction_URI";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartFunction_URI.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartFunction_URI.Series.Add(series3);
             this.chartFunction_URI.Size = new System.Drawing.Size(683, 464);
             this.chartFunction_URI.TabIndex = 0;
             this.chartFunction_URI.Text = "chart1";
@@ -232,7 +232,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // buttonDeleteGraphuks_URI
             // 
-            this.buttonDeleteGraphuks_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonDeleteGraphuks_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDeleteGraphuks_URI.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.buttonDeleteGraphuks_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonDeleteGraphuks_URI.Location = new System.Drawing.Point(881, 22);
@@ -258,7 +258,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // buttonAddGraphyks_URI
             // 
-            this.buttonAddGraphyks_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonAddGraphyks_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddGraphyks_URI.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.buttonAddGraphyks_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddGraphyks_URI.Location = new System.Drawing.Point(881, 71);
