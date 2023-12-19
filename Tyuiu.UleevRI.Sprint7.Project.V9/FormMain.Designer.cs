@@ -223,7 +223,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonAdd_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAdd_URI.BackColor = System.Drawing.Color.OldLace;
             this.buttonAdd_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAdd_URI.Location = new System.Drawing.Point(15, 566);
+            this.buttonAdd_URI.Location = new System.Drawing.Point(14, 555);
             this.buttonAdd_URI.Name = "buttonAdd_URI";
             this.buttonAdd_URI.Size = new System.Drawing.Size(158, 43);
             this.buttonAdd_URI.TabIndex = 8;
@@ -247,9 +247,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.groupBoxStatictic_URI.Controls.Add(this.textBoxSum_URI);
             this.groupBoxStatictic_URI.Controls.Add(this.textBoxQuantity_URI);
             this.groupBoxStatictic_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBoxStatictic_URI.Location = new System.Drawing.Point(195, 512);
+            this.groupBoxStatictic_URI.Location = new System.Drawing.Point(195, 493);
             this.groupBoxStatictic_URI.Name = "groupBoxStatictic_URI";
-            this.groupBoxStatictic_URI.Size = new System.Drawing.Size(992, 107);
+            this.groupBoxStatictic_URI.Size = new System.Drawing.Size(992, 126);
             this.groupBoxStatictic_URI.TabIndex = 7;
             this.groupBoxStatictic_URI.TabStop = false;
             this.groupBoxStatictic_URI.Text = "Статистические данные";
@@ -339,7 +339,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonDelete_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonDelete_URI.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonDelete_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelete_URI.Location = new System.Drawing.Point(14, 512);
+            this.buttonDelete_URI.Location = new System.Drawing.Point(15, 493);
             this.buttonDelete_URI.Name = "buttonDelete_URI";
             this.buttonDelete_URI.Size = new System.Drawing.Size(158, 43);
             this.buttonDelete_URI.TabIndex = 6;

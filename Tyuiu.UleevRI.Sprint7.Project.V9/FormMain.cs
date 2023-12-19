@@ -58,11 +58,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 columns = matrix.GetLength(1);
                 dataGridViewOpenFile_URI.RowCount = 250;
                 dataGridViewOpenFile_URI.ColumnCount = 50;
-
+                /*
                 for (int i = 0; i < rows; i++)
                 {
-                    //dataGridViewOpenFile_URI.Columns[i].Width = 50;
+                    dataGridViewOpenFile_URI.Columns[i].Width = 50;
                 }
+                */
                 for (int i = 0; i < rows; i++)
                 {
                     for (int j = 0; j < columns; j++)
