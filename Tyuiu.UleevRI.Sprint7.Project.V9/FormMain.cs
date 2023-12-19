@@ -211,7 +211,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                             {
                                 //DataGridViewColumn.SortedRows[i];
                                 //seichas = 1;
-                                //break;
                             }
                         }
                     }
