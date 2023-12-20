@@ -56,9 +56,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 matrix = ds.LoadFromDataFile(openFile);
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
-                dataGridViewOpenFile_URI.RowCount = rows+1;
-                dataGridViewOpenFile_URI.ColumnCount = columns+1;
-                
+                dataGridViewOpenFile_URI.RowCount = rows + 1;
+                dataGridViewOpenFile_URI.ColumnCount = columns + 1;
+
                 for (int i = 0; i < rows; i++)
                 {
                     for (int j = 0; j < columns; j++)
@@ -98,7 +98,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         {
                             strBuilder.Append(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value);
 
-                            if (j != columns - 1)strBuilder.Append(";");
+                            if (j != columns - 1) strBuilder.Append(";");
                         }
                         strBuilder.AppendLine();
                     }
@@ -109,145 +109,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             catch
             {
                 MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        static string[,] mtrxSort;
-        private void textBoxSort_URI_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (dataGridViewOpenFile_URI.RowCount != 0)
-            {
-                mtrxSort = new string[dataGridViewOpenFile_URI.RowCount, dataGridViewOpenFile_URI.ColumnCount];
-                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                {
-                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                    {
-                        mtrxSort[i, j] = Convert.ToString(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value);
-                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
-                    }
-                }
-            }
-            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void textBoxSort_URI_KeyUp(object sender, KeyEventArgs e)
-        {
-            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-            {
-                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                {
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
-                }
-            }
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (comboBoxSort_URI.Text == "По возрастанию")
-                {
-                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                    {
-                        for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                        {
-                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
-                            {
-                                
-                                //dataGridViewOpenFile_URI.Sort(dataGridViewOpenFile_URI.Columns[j], ListSortDirection.Descending);
-                               
-                            }
-                        }
-                    }
-                }
-                if (comboBoxSort_URI.Text == "По убыванию")
-                {
-                    //
-                }
-            }
-        }
-
-        private void textBoxSort_URI_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-            {
-                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                {
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Value = mtrxSort[i, j];
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
-                }
-            }
-        }
-
-        static string[,] mtrxFilter;
-        private void textBoxFilter_URI_KeyDoWn(object sender, KeyEventArgs e)
-        {
-            if (dataGridViewOpenFile_URI.RowCount != 0)
-            {
-                mtrxFilter = new string[dataGridViewOpenFile_URI.RowCount, dataGridViewOpenFile_URI.ColumnCount];
-                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                {
-                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                    {
-                        mtrxFilter[i, j] = Convert.ToString(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value);
-                    }
-                }
-            }
-            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void textBoxFilter_URI_KeyUp(object sender, KeyEventArgs e)
-        {
-            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-            {
-                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                {
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
-                }
-            }
-            if (e.KeyCode == Keys.Enter)
-            {
-                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                {
-                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                    {
-                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
-                        {
-                            string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[j].Value.ToString().ToLower();
-                            if (elmnt.StartsWith(textBoxFilter_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = true;
-                        }
-                    }
-                }
-
-                int clear = 0;
-                for (int r = 1; r < dataGridViewOpenFile_URI.RowCount - 1; r++)
-                {
-                    for (int c = 0; c < dataGridViewOpenFile_URI.ColumnCount - 1; c++)
-                    {
-                        if (dataGridViewOpenFile_URI.Rows[r].Cells[c].Selected == true) clear += 1;
-                    }
-                    if (clear == 0) dataGridViewOpenFile_URI.Rows[r].Visible = false;
-                    else
-                    {
-                        dataGridViewOpenFile_URI.Rows[r].Visible = true;
-                        clear = 0;
-                    }
-                }
-                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                {
-                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                    {
-                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
-                    }
-                }
-            }
-        }
-
-        private void textBoxFilter_URI_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-            {
-                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                {
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Value = mtrxFilter[i, j];
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
-                }
             }
         }
 
@@ -329,15 +190,144 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             }
         }
 
-        private void textBoxSearch_URI_KeyPress(object sender, KeyPressEventArgs e)
+
+
+        static string[,] mtrxSort;
+        private void textBoxSort_URI_KeyDown(object sender, KeyEventArgs e)
         {
-            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+            
+            if (dataGridViewOpenFile_URI.RowCount != 0)
             {
-                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                mtrxSort = new string[dataGridViewOpenFile_URI.RowCount, dataGridViewOpenFile_URI.ColumnCount];
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                 {
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Value = mtrxSearch[i, j];
-                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        mtrxSort[i, j] = Convert.ToString(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value);
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                    }
                 }
+            }
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+        }
+
+        private void comboBoxSort_URI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxSort_URI.SelectedItem != null)
+            {
+                int columnIndex = 0;
+                int stolbets = 0;
+                for (int i = 0; i < dataGridViewOpenFile_URI.ColumnCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                        {
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
+                            {
+                                columnIndex = j;
+                                stolbets = j;
+                                break;
+                            }
+                        }
+                        if (columnIndex > 0) break;
+                    }
+                    bool Num = true;
+
+                    foreach (DataGridViewRow row in dataGridViewOpenFile_URI.Rows)
+                    {
+                        int cellValue;
+                        if (row.Cells[columnIndex].Value != null && int.TryParse(row.Cells[columnIndex].Value.ToString(), out cellValue))
+                        {
+                            row.Cells[columnIndex].Value = cellValue;
+                        }
+                        else
+                        {
+                            row.Cells[columnIndex].Value = 0; 
+                            Num = false;
+                        }
+                    }
+                    if (Num)
+                    {
+                        DataGridViewColumn column = dataGridViewOpenFile_URI.Columns[stolbets];
+                        string selectedItem = comboBoxSort_URI.SelectedItem.ToString();
+
+                        if (selectedItem == "По возрастанию") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Ascending);
+                        if (selectedItem == "По убыванию") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Descending);
+                    }
+                    //else MessageBox.Show("Невозможно выполнить сортировку");
+                }
+            }
+        }
+
+        static string[,] mtrxFilter;
+        private void textBoxFilter_URI_KeyDoWn(object sender, KeyEventArgs e)
+        {
+            if (dataGridViewOpenFile_URI.RowCount != 0)
+            {
+                mtrxFilter = new string[dataGridViewOpenFile_URI.RowCount, dataGridViewOpenFile_URI.ColumnCount];
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        mtrxFilter[i, j] = Convert.ToString(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value);
+                    }
+                }
+            }
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void textBoxFilter_URI_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int nugno = 0;
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                        {
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
+                            {
+                                nugno = j;
+                                break;
+                            }
+                        }
+                        if (nugno > 0) break;
+                    }
+                }
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                    }
+                }
+
+                if (nugno > 0)
+                {
+                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                    {
+                        string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString().ToLower();
+                        if (elmnt.StartsWith(textBoxFilter_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected = true;
+                    }
+
+                    for (int r = 1; r < dataGridViewOpenFile_URI.RowCount - 1; r++)
+                    {
+                        if (dataGridViewOpenFile_URI.Rows[r].Cells[nugno].Selected == true) dataGridViewOpenFile_URI.Rows[r].Visible = true;
+                        else dataGridViewOpenFile_URI.Rows[r].Visible = false;
+                    }
+                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                    {
+                        for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                        {
+                            dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                        }
+                    }
+                }
+                else MessageBox.Show("Не выбран столбец", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -370,3 +360,4 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         }
     }
 }
+

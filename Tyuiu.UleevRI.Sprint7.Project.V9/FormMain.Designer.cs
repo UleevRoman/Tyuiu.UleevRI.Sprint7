@@ -100,7 +100,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
@@ -208,7 +208,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxSearch_URI.Size = new System.Drawing.Size(841, 27);
             this.textBoxSearch_URI.TabIndex = 12;
             this.textBoxSearch_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyDown);
-            this.textBoxSearch_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSearch_URI_KeyPress);
             this.textBoxSearch_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyUp);
             // 
             // labelSearch_URI
@@ -363,7 +362,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.groupBoxFilter_URI.TabIndex = 4;
             this.groupBoxFilter_URI.TabStop = false;
             this.groupBoxFilter_URI.Text = "Фильтрация";
-            this.toolTipFilter_URI.SetToolTip(this.groupBoxFilter_URI, "Введите запрос в поле ввода");
+            this.toolTipFilter_URI.SetToolTip(this.groupBoxFilter_URI, "Введите запрос в поле ввода \r\nи выберите столбец в таблице");
             // 
             // textBoxFilter_URI
             // 
@@ -372,7 +371,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxFilter_URI.Size = new System.Drawing.Size(228, 30);
             this.textBoxFilter_URI.TabIndex = 3;
             this.textBoxFilter_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_URI_KeyDoWn);
-            this.textBoxFilter_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFilter_URI_KeyPress);
             this.textBoxFilter_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_URI_KeyUp);
             // 
             // groupBoxSort_URI
@@ -400,9 +398,10 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.comboBoxSort_URI.Name = "comboBoxSort_URI";
             this.comboBoxSort_URI.Size = new System.Drawing.Size(228, 31);
             this.comboBoxSort_URI.TabIndex = 2;
+            this.comboBoxSort_URI.SelectedIndexChanged += new System.EventHandler(this.comboBoxSort_URI_SelectedIndexChanged);
             this.comboBoxSort_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSort_URI_KeyDown);
-            this.comboBoxSort_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSort_URI_KeyPress);
-            this.comboBoxSort_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSort_URI_KeyUp);
+            //this.comboBoxSort_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSort_URI_KeyPress);
+            //this.comboBoxSort_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSort_URI_KeyUp);
             // 
             // dataGridViewOpenFile_URI
             // 

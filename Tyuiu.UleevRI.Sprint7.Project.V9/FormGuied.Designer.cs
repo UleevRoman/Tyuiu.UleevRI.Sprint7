@@ -60,26 +60,26 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
             this.MenuStrip_URI.TabIndex = 10;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
             // 
             // toolStripMenuItemBack_URI
             // 
             this.toolStripMenuItemBack_URI.Name = "toolStripMenuItemBack_URI";
-            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 24);
+            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 26);
             this.toolStripMenuItemBack_URI.Text = "Назад";
             this.toolStripMenuItemBack_URI.Click += new System.EventHandler(this.toolStripMenuItemBack_URI_Click);
             // 
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -105,7 +105,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // textBoxGueid_URI
             // 
             this.textBoxGueid_URI.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxGueid_URI.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxGueid_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxGueid_URI.Location = new System.Drawing.Point(0, 0);
             this.textBoxGueid_URI.Multiline = true;
             this.textBoxGueid_URI.Name = "textBoxGueid_URI";
@@ -113,7 +113,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxGueid_URI.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxGueid_URI.Size = new System.Drawing.Size(1219, 615);
             this.textBoxGueid_URI.TabIndex = 0;
-            this.textBoxGueid_URI.Text = "Текст будет позже!!!";
+            this.textBoxGueid_URI.Text = "Разделы руководства пользователя:\r\n1. Введение.\r\n2. Назначение и условия применен" +
+    "ия.\r\n3. Подготовка к работе.\r\n4. Описание операций.\r\n5. Аварийные ситуации.\r\n6. " +
+    "Рекомендации по освоению.";
             // 
             // FormGuied
             // 
