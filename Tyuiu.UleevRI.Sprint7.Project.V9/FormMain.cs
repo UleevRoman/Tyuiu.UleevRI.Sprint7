@@ -421,6 +421,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         if (elmnt.Contains(",")) elmnt.Replace(",", ".");
                         sum += Convert.ToInt32(elmnt);
                     }
+                    //
                     textBoxSum_URI.Text = Convert.ToString(sum);
                 }
             }
