@@ -70,6 +70,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolTipAdd_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipSort_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipFilter_URI = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipSearch_URI = new System.Windows.Forms.ToolTip(this.components);
             this.panelHelp_URI.SuspendLayout();
             this.MenuStrip_URI.SuspendLayout();
             this.panelActions_URI.SuspendLayout();
@@ -100,14 +101,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
             // 
             // ToolStripMenuItemFile_URI
             // 
@@ -116,7 +117,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.сохранитьToolStripMenuItemFile_URI});
             this.ToolStripMenuItemFile_URI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToolStripMenuItemFile_URI.Name = "ToolStripMenuItemFile_URI";
-            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 24);
+            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 26);
             this.ToolStripMenuItemFile_URI.Text = "Файл";
             // 
             // открытьToolStripMenuItemFile_URI
@@ -140,7 +141,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGraphyks_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.перейтиКРазделуToolStripMenuItem});
             this.ToolStripMenuItemGraphyks_URI.Name = "ToolStripMenuItemGraphyks_URI";
-            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 24);
+            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 26);
             this.ToolStripMenuItemGraphyks_URI.Text = "Графики";
             // 
             // перейтиКРазделуToolStripMenuItem
@@ -155,7 +156,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGuied_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItemGuied_URI});
             this.ToolStripMenuItemGuied_URI.Name = "ToolStripMenuItemGuied_URI";
-            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 24);
+            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 26);
             this.ToolStripMenuItemGuied_URI.Text = "Краткое руководство";
             // 
             // открытьToolStripMenuItemGuied_URI
@@ -168,7 +169,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -207,6 +208,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxSearch_URI.Name = "textBoxSearch_URI";
             this.textBoxSearch_URI.Size = new System.Drawing.Size(841, 27);
             this.textBoxSearch_URI.TabIndex = 12;
+            this.toolTipSearch_URI.SetToolTip(this.textBoxSearch_URI, "Нажмите на кнопку \"Поиск\" перед вводом текста в строку поиска ");
             this.textBoxSearch_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyDown);
             this.textBoxSearch_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyUp);
             // 
@@ -219,6 +221,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.labelSearch_URI.Size = new System.Drawing.Size(70, 25);
             this.labelSearch_URI.TabIndex = 11;
             this.labelSearch_URI.Text = "Поиск:";
+            this.toolTipSearch_URI.SetToolTip(this.labelSearch_URI, "Нажмите на кнопку \"Поиск\" перед вводом текста в строку поиска");
             // 
             // buttonAdd_URI
             // 
@@ -370,6 +373,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxFilter_URI.Name = "textBoxFilter_URI";
             this.textBoxFilter_URI.Size = new System.Drawing.Size(228, 30);
             this.textBoxFilter_URI.TabIndex = 3;
+            this.toolTipFilter_URI.SetToolTip(this.textBoxFilter_URI, "Введите запрос в поле ввода \r\nи выберите столбец в таблице\r\n");
             this.textBoxFilter_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_URI_KeyDoWn);
             this.textBoxFilter_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxFilter_URI_KeyUp);
             // 
@@ -386,22 +390,24 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.groupBoxSort_URI.TabIndex = 3;
             this.groupBoxSort_URI.TabStop = false;
             this.groupBoxSort_URI.Text = "Сортировка";
-            this.toolTipSort_URI.SetToolTip(this.groupBoxSort_URI, "Нажмите на ячейку в таблице, для столбца\r\nкоторой произведется сортировка");
+            this.toolTipSort_URI.SetToolTip(this.groupBoxSort_URI, "Нажмите на пустое поле ввода сортировки.\r\nВыберите на ячейку в таблице, для столб" +
+        "ца\r\nкоторой произведется сортировка");
             // 
             // comboBoxSort_URI
             // 
             this.comboBoxSort_URI.FormattingEnabled = true;
             this.comboBoxSort_URI.Items.AddRange(new object[] {
             "По возрастанию",
-            "По убыванию"});
+            "По убыванию",
+            "Изначальное состояние"});
             this.comboBoxSort_URI.Location = new System.Drawing.Point(7, 61);
             this.comboBoxSort_URI.Name = "comboBoxSort_URI";
             this.comboBoxSort_URI.Size = new System.Drawing.Size(228, 31);
             this.comboBoxSort_URI.TabIndex = 2;
+            this.toolTipSort_URI.SetToolTip(this.comboBoxSort_URI, "Нажмите на пустое поле ввода сортировки.\r\nВыберите на ячейку в таблице, для столб" +
+        "ца\r\nкоторой произведется сортировка\r\n");
             this.comboBoxSort_URI.SelectedIndexChanged += new System.EventHandler(this.comboBoxSort_URI_SelectedIndexChanged);
-            this.comboBoxSort_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSort_URI_KeyDown);
-            //this.comboBoxSort_URI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSort_URI_KeyPress);
-            //this.comboBoxSort_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSort_URI_KeyUp);
+            this.comboBoxSort_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxSort_URI_KeyDown);
             // 
             // dataGridViewOpenFile_URI
             // 
@@ -505,6 +511,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.ToolTip toolTipSort_URI;
         private System.Windows.Forms.TextBox textBoxFilter_URI;
         private System.Windows.Forms.ToolTip toolTipFilter_URI;
+        private System.Windows.Forms.ToolTip toolTipSearch_URI;
     }
 }
 
