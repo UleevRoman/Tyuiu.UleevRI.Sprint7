@@ -55,8 +55,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 matrix = ds.LoadFromDataFile(openFile);
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
-                dataGridViewOpenFile_URI.RowCount = rows + 50;
-                dataGridViewOpenFile_URI.ColumnCount = columns + 100;
+                dataGridViewOpenFile_URI.RowCount = rows + 1;
+                dataGridViewOpenFile_URI.ColumnCount = columns + 10;
 
                 for (int i = 0; i < rows; i++)
                 {
@@ -173,7 +173,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     int clear = 0;
                     for (int r = 1; r < mtrxSearch.GetUpperBound(0); r++)
                     {
-                        for (int c = 0; c < mtrxSearch.GetUpperBound(1) - 1; c++)
+                        for (int c = 0; c < mtrxSearch.GetUpperBound(1); c++)
                         {
                             if (dataGridViewOpenFile_URI.Rows[r].Cells[c].Selected == true) clear += 1;
                         }
@@ -211,7 +211,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             {
                 if (comboBoxSort_URI.SelectedItem != null)
                 {
-                    int columnIndex = 0;
+                    int columnIndex = -1;
                     for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                     {
                         for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
@@ -362,6 +362,67 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             catch
             {
                 MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBoxQuantity_URI_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int nugno = -1;
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                { 
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        int cellCalue;
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true && int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value.ToString(), out cellCalue))
+                        {
+                            nugno = j;
+                            break;
+                        }
+                    }
+                    if (nugno > 0) break;
+                }
+
+                int counter = 0;
+                if (nugno > 0)
+                {
+                    for (int r = 1; r < dataGridViewOpenFile_URI.RowCount - 1; r++) counter++;
+                    textBoxQuantity_URI.Text = Convert.ToString(counter)
+                }
+            }
+        }
+
+        private void textBoxSum_URI_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                int nugno = -1;
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        int cellCalue;
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true && int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[j].Value.ToString(), out cellCalue))
+                        {
+                            nugno = j;
+                            break;
+                        }
+                    }
+                    if (nugno > 0) break;
+                }
+
+                int sum = 0;
+                if (nugno > 0)
+                {
+                    for (int r = 1; r < dataGridViewOpenFile_URI.RowCount - 1; r++)
+                    {
+                        string elmnt = dataGridViewOpenFile_URI.Rows[r].Cells[nugno].Value.ToString();
+                        if (elmnt.Contains(",")) elmnt.Replace(",", ".");
+                        sum += Convert.ToInt32(elmnt);
+                    }
+                    textBoxSum_URI.Text = Convert.ToString(sum);
+                }
             }
         }
     }
