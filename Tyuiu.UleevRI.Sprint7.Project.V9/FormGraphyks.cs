@@ -83,13 +83,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 matrix = ds.LoadFromDataFile(openFile);
                 rows = matrix.GetLength(0);
                 columns = matrix.GetLength(1);
-                dataGridViewOpenFile_URI.RowCount = 250;
-                dataGridViewOpenFile_URI.ColumnCount = 50;
 
-                for (int i = 0; i < rows; i++)
-                {
-                    //dataGridViewOpenFile_URI.Columns[i].Width = 50;
-                }
+                dataGridViewOpenFile_URI.Rows.Clear();
+                dataGridViewOpenFile_URI.Columns.Clear();
+                dataGridViewOpenFile_URI.RowCount = rows + 1;
+                dataGridViewOpenFile_URI.ColumnCount = columns + 10;
 
                 for (int i = 0; i < rows; i++)
                 {
@@ -99,6 +97,10 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
                     }
                 }
+                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 9);
+                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Arial", 10.99F, GraphicsUnit.Pixel);
+                this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Tahoma", 9);
                 dataGridViewOpenFile_URI.AutoResizeColumns();
             }
             catch
@@ -119,8 +121,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
                     if (File.Exists(savepath)) File.Delete(savepath);
 
-                    int rows = dataGridViewOpenFile_URI.RowCount;
-                    int columns = dataGridViewOpenFile_URI.ColumnCount;
+                    int rows = dataGridViewOpenFile_URI.RowCount - 1;
+                    int columns = dataGridViewOpenFile_URI.ColumnCount - 1;
 
                     StringBuilder strBuilder = new StringBuilder();
 
@@ -148,17 +150,45 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         {
             if (dataGridViewOpenFile_URI.RowCount != 0)
             {
-                int konechno = 0;
-                var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes) konechno = 1;
-                if (konechno == 1)
+                int nugno = -1; int udal = 0;
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                 {
-                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
                     {
-                        int a = dataGridViewOpenFile_URI.CurrentCell.RowIndex;
-                        dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[a]);
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
+                        {
+                            nugno = j;
+                            break;
+                        }
+                    }
+                    if (nugno > -1) udal++;
+                }
+                if (nugno > -1)
+                {
+                    var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        int k = -1;
+                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                        {
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
+                            {
+                                k = i;
+                                break;
+                            }
+                            if (k > -1) break;
+                        }
+                        for (int r = 0; r < udal; r++) dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[k]);
+                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                        {
+                            for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                            {
+                                dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                            }
+                        }
                     }
                 }
+                else MessageBox.Show("Выберите строку, которую ходите удалить", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

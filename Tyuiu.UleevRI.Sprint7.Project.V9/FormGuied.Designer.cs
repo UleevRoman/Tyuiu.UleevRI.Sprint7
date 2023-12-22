@@ -119,8 +119,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // FormGuied
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1219, 690);
             this.Controls.Add(this.panelActions_URI);
             this.Controls.Add(this.panel);

@@ -71,7 +71,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolTipAdd_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipSort_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipFilter_URI = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTipSearch_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipQuantity_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipSum_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipMiddleValue_URI = new System.Windows.Forms.ToolTip(this.components);
@@ -94,7 +93,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelHelp_URI.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHelp_URI.Location = new System.Drawing.Point(0, 0);
             this.panelHelp_URI.Name = "panelHelp_URI";
-            this.panelHelp_URI.Size = new System.Drawing.Size(1219, 26);
+            this.panelHelp_URI.Size = new System.Drawing.Size(1217, 26);
             this.panelHelp_URI.TabIndex = 0;
             // 
             // MenuStrip_URI
@@ -108,14 +107,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1217, 28);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
             // 
             // ToolStripMenuItemFile_URI
             // 
@@ -124,7 +123,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.сохранитьToolStripMenuItemFile_URI});
             this.ToolStripMenuItemFile_URI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ToolStripMenuItemFile_URI.Name = "ToolStripMenuItemFile_URI";
-            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 24);
+            this.ToolStripMenuItemFile_URI.Size = new System.Drawing.Size(59, 26);
             this.ToolStripMenuItemFile_URI.Text = "Файл";
             // 
             // открытьToolStripMenuItemFile_URI
@@ -148,7 +147,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGraphyks_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.перейтиКРазделуToolStripMenuItem});
             this.ToolStripMenuItemGraphyks_URI.Name = "ToolStripMenuItemGraphyks_URI";
-            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 24);
+            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 26);
             this.ToolStripMenuItemGraphyks_URI.Text = "Графики";
             // 
             // перейтиКРазделуToolStripMenuItem
@@ -163,7 +162,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.ToolStripMenuItemGuied_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItemGuied_URI});
             this.ToolStripMenuItemGuied_URI.Name = "ToolStripMenuItemGuied_URI";
-            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 24);
+            this.ToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(170, 26);
             this.ToolStripMenuItemGuied_URI.Text = "Краткое руководство";
             // 
             // открытьToolStripMenuItemGuied_URI
@@ -176,7 +175,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -186,7 +185,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelDown_URI.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDown_URI.Location = new System.Drawing.Point(32, 645);
             this.panelDown_URI.Name = "panelDown_URI";
-            this.panelDown_URI.Size = new System.Drawing.Size(1187, 45);
+            this.panelDown_URI.Size = new System.Drawing.Size(1185, 45);
             this.panelDown_URI.TabIndex = 3;
             // 
             // panelActions_URI
@@ -203,7 +202,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelActions_URI.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelActions_URI.Location = new System.Drawing.Point(32, 26);
             this.panelActions_URI.Name = "panelActions_URI";
-            this.panelActions_URI.Size = new System.Drawing.Size(1187, 619);
+            this.panelActions_URI.Size = new System.Drawing.Size(1185, 619);
             this.panelActions_URI.TabIndex = 4;
             this.toolTipMinValue_URI.SetToolTip(this.panelActions_URI, "Выберите столбец для нахождения минимального значения его строк");
             // 
@@ -222,7 +221,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.groupBoxStatictic_URI.Controls.Add(this.textBoxSum_URI);
             this.groupBoxStatictic_URI.Controls.Add(this.textBoxQuantity_URI);
             this.groupBoxStatictic_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBoxStatictic_URI.Location = new System.Drawing.Point(220, 510);
+            this.groupBoxStatictic_URI.Location = new System.Drawing.Point(218, 510);
             this.groupBoxStatictic_URI.Name = "groupBoxStatictic_URI";
             this.groupBoxStatictic_URI.Size = new System.Drawing.Size(967, 109);
             this.groupBoxStatictic_URI.TabIndex = 7;
@@ -330,9 +329,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxSearch_URI.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxSearch_URI.Location = new System.Drawing.Point(86, 12);
             this.textBoxSearch_URI.Name = "textBoxSearch_URI";
-            this.textBoxSearch_URI.Size = new System.Drawing.Size(841, 27);
+            this.textBoxSearch_URI.Size = new System.Drawing.Size(839, 27);
             this.textBoxSearch_URI.TabIndex = 12;
-            this.toolTipSearch_URI.SetToolTip(this.textBoxSearch_URI, "Нажмите на кнопку \"Поиск\" перед вводом текста в строку поиска ");
             this.textBoxSearch_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyDown);
             this.textBoxSearch_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_URI_KeyUp);
             // 
@@ -346,7 +344,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.labelSearch_URI.Size = new System.Drawing.Size(70, 25);
             this.labelSearch_URI.TabIndex = 11;
             this.labelSearch_URI.Text = "Поиск:";
-            this.toolTipSearch_URI.SetToolTip(this.labelSearch_URI, "Нажмите на кнопку \"Поиск\" перед вводом текста в строку поиска");
             // 
             // buttonAdd_URI
             // 
@@ -378,12 +375,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // groupBoxFilter_URI
             // 
-            this.groupBoxFilter_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxFilter_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxFilter_URI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.groupBoxFilter_URI.Controls.Add(this.buttonFilter_URI);
             this.groupBoxFilter_URI.Controls.Add(this.textBoxFilter_URI);
             this.groupBoxFilter_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBoxFilter_URI.Location = new System.Drawing.Point(935, 245);
+            this.groupBoxFilter_URI.Location = new System.Drawing.Point(933, 213);
             this.groupBoxFilter_URI.Name = "groupBoxFilter_URI";
             this.groupBoxFilter_URI.Size = new System.Drawing.Size(241, 146);
             this.groupBoxFilter_URI.TabIndex = 4;
@@ -413,15 +410,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // groupBoxSort_URI
             // 
-            this.groupBoxSort_URI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxSort_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxSort_URI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.groupBoxSort_URI.Controls.Add(this.buttonSort_URI);
             this.groupBoxSort_URI.Controls.Add(this.comboBoxSort_URI);
             this.groupBoxSort_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBoxSort_URI.Location = new System.Drawing.Point(935, 49);
+            this.groupBoxSort_URI.Location = new System.Drawing.Point(933, 49);
             this.groupBoxSort_URI.Name = "groupBoxSort_URI";
-            this.groupBoxSort_URI.Size = new System.Drawing.Size(241, 146);
+            this.groupBoxSort_URI.Size = new System.Drawing.Size(241, 148);
             this.groupBoxSort_URI.TabIndex = 3;
             this.groupBoxSort_URI.TabStop = false;
             this.groupBoxSort_URI.Text = "Сортировка";
@@ -454,7 +450,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.dataGridViewOpenFile_URI.RowHeadersVisible = false;
             this.dataGridViewOpenFile_URI.RowHeadersWidth = 51;
             this.dataGridViewOpenFile_URI.RowTemplate.Height = 24;
-            this.dataGridViewOpenFile_URI.Size = new System.Drawing.Size(913, 400);
+            this.dataGridViewOpenFile_URI.Size = new System.Drawing.Size(911, 400);
             this.dataGridViewOpenFile_URI.TabIndex = 0;
             // 
             // openFileDialog_URI
@@ -486,7 +482,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1219, 690);
+            this.ClientSize = new System.Drawing.Size(1217, 690);
             this.Controls.Add(this.panelActions_URI);
             this.Controls.Add(this.panelDown_URI);
             this.Controls.Add(this.panelMenu_URI);
@@ -494,7 +490,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.MenuStrip_URI;
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1237, 722);
+            this.MinimumSize = new System.Drawing.Size(1235, 737);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Каталог видеоклипов";
@@ -556,7 +552,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.ToolTip toolTipSort_URI;
         private System.Windows.Forms.TextBox textBoxFilter_URI;
         private System.Windows.Forms.ToolTip toolTipFilter_URI;
-        private System.Windows.Forms.ToolTip toolTipSearch_URI;
         private System.Windows.Forms.ToolTip toolTipMaxVelue_URI;
         private System.Windows.Forms.ToolTip toolTipMiddleValue_URI;
         private System.Windows.Forms.ToolTip toolTipSum_URI;
