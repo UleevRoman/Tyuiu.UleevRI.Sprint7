@@ -303,7 +303,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                 }
             }
-            else if (dataGridViewOpenFile_URI.RowCount != 0 && tralivali == 0) MessageBox.Show("Пожалуйста, нажмите на пустое поле выбора сортировки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (dataGridViewOpenFile_URI.RowCount != 0 && tralivali == 0) MessageBox.Show("А надо было нажимать на пустое поле ввода сортировки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
