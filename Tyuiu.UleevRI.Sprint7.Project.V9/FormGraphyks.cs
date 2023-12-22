@@ -204,5 +204,19 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void buttonDeleteGraphuks_URI_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewOpenFile_URI.RowCount != 0) chartFunction_URI.Series.Clear();
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        private void buttonAddGraphyks_URI_Click(object sender, EventArgs e)
+        {
+            this.chartFunction_URI.ChartAreas[0].AxisX.Title = "ID";
+            //
+            this.chartFunction_URI.ChartAreas[0].AxisY.Title = "Ось Y";
+        }
     }
 }

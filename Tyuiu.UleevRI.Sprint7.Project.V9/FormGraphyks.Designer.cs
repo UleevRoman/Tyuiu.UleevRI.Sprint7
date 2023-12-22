@@ -30,9 +30,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGraphyks));
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
@@ -95,7 +95,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1274, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1274, 30);
             this.MenuStrip_URI.TabIndex = 9;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
@@ -186,19 +186,19 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // chartFunction_URI
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartFunction_URI.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.chartFunction_URI.ChartAreas.Add(chartArea3);
             this.chartFunction_URI.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chartFunction_URI.Legends.Add(legend1);
+            legend3.Enabled = false;
+            legend3.Name = "Legend1";
+            this.chartFunction_URI.Legends.Add(legend3);
             this.chartFunction_URI.Location = new System.Drawing.Point(0, 0);
             this.chartFunction_URI.Name = "chartFunction_URI";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartFunction_URI.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartFunction_URI.Series.Add(series3);
             this.chartFunction_URI.Size = new System.Drawing.Size(655, 479);
             this.chartFunction_URI.TabIndex = 0;
             this.chartFunction_URI.Text = "chart1";
@@ -226,6 +226,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonDeleteGraphuks_URI.TabIndex = 10;
             this.buttonDeleteGraphuks_URI.Text = "Удалить график";
             this.buttonDeleteGraphuks_URI.UseVisualStyleBackColor = false;
+            this.buttonDeleteGraphuks_URI.Click += new System.EventHandler(this.buttonDeleteGraphuks_URI_Click);
             // 
             // buttonAdd_URI
             // 
@@ -252,6 +253,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonAddGraphyks_URI.TabIndex = 8;
             this.buttonAddGraphyks_URI.Text = "Построить график";
             this.buttonAddGraphyks_URI.UseVisualStyleBackColor = false;
+            this.buttonAddGraphyks_URI.Click += new System.EventHandler(this.buttonAddGraphyks_URI_Click);
             // 
             // buttonDelete_URI
             // 

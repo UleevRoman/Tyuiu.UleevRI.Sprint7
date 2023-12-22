@@ -75,6 +75,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Arial", 10.99F, GraphicsUnit.Pixel);
                 this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Tahoma", 9);
                 dataGridViewOpenFile_URI.AutoResizeColumns();
+                comboBoxSort_URI.Text = "";
             }
             catch
             {
@@ -170,80 +171,127 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                 }
                 tralivali++;
+                
+                int vozmogno = 1; int k = -1; 
+                for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount; j++)
+                    {
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value == null) vozmogno++;
+                    }
+                    if (vozmogno == dataGridViewOpenFile_URI.ColumnCount)
+                    {
+                        k = i;
+                        break;
+                    }
+                    else vozmogno = 0;
+                }
+                if (k > -1) MessageBox.Show("Пожалуйста, удалите все пустые строки, кроме последней", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void comboBoxSort_URI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxSort_URI.SelectedItem != null)
+            if (comboBoxSort_URI.SelectedItem != null && dataGridViewOpenFile_URI.RowCount != 0)
             {
-                int columnIndex = -1;
-                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                {
-                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
-                    {
-                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
-                        {
-                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
-                            {
-                                columnIndex = j;
-                                break;
-                            }
-                        }
-                    }
-                    if (columnIndex > -1) break;
-                }
-
+                int vozmogno = 1; int k = -1;
                 for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                 {
-                    string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString();
-                    if (elmnt.Contains(","))
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount; j++)
                     {
-                        elmnt.Replace(",", ".");
-                        dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value = Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString());
+                        if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value == null) vozmogno++;
                     }
-                    else
+                    if (vozmogno == dataGridViewOpenFile_URI.ColumnCount)
                     {
-                        int cellValue;
-                        if (int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString(), out cellValue))
-                        {
-                            dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value = Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString());
-                        }
+                        k = i;
+                        break;
                     }
+                    else vozmogno = 0;
                 }
-
-                if (dataGridViewOpenFile_URI.RowCount != 0)
+                if (k > -1) MessageBox.Show("Пожалуйста, удалите все пустые строки, кроме последней", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
                 {
-                    DataGridViewRow row = dataGridViewOpenFile_URI.Rows[0];
-                    dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[0]);
-
-                    DataGridViewColumn column = dataGridViewOpenFile_URI.Columns[columnIndex];
-                    string selectedItem = comboBoxSort_URI.SelectedItem.ToString();
-                    if (selectedItem == "По возрастанию (от А до Я)") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Ascending);
-                    if (selectedItem == "По убыванию (от Я до А)") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Descending);
-                    dataGridViewOpenFile_URI.Rows.Insert(0, row);
-
+                    int kakbuda = 0;
                     for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                     {
                         for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
                         {
-                            dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == false) kakbuda++;
                         }
                     }
-                    
-                    textBoxQuantity_URI.Text = "";
-                    textBoxSum_URI.Text = "";
-                    textBoxMiddleValue_URI.Text = "";
-                    textBoxMinValue_URI.Text = "";
-                    textBoxMaxValue_URI.Text = "";
+                    if (kakbuda != (dataGridViewOpenFile_URI.RowCount - 1) * (dataGridViewOpenFile_URI.ColumnCount - 1))
+                    {
+                        int columnIndex = -1;
+                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                        {
+                            for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                            {
+                                if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                                {
+                                    if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
+                                    {
+                                        columnIndex = j;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (columnIndex > -1) break;
+                        }
+
+                        for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                        {
+                            string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString();
+                            if (elmnt.Contains(","))
+                            {
+                                elmnt.Replace(",", ".");
+                                dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value = Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString());
+                            }
+                            else
+                            {
+                                int cellValue;
+                                if (int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString(), out cellValue))
+                                {
+                                    dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value = Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString());
+                                }
+                            }
+                        }
+
+                        if (dataGridViewOpenFile_URI.RowCount != 0)
+                        {
+                            DataGridViewRow row = dataGridViewOpenFile_URI.Rows[0];
+                            dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[0]);
+
+                            DataGridViewColumn column = dataGridViewOpenFile_URI.Columns[columnIndex];
+                            string selectedItem = comboBoxSort_URI.SelectedItem.ToString();
+                            if (selectedItem == "По возрастанию (от А до Я)") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Ascending);
+                            if (selectedItem == "По убыванию (от Я до А)") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Descending);
+                            dataGridViewOpenFile_URI.Rows.Insert(0, row);
+
+                            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                            {
+                                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                                {
+                                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                                }
+                            }
+
+                            textBoxQuantity_URI.Text = "";
+                            textBoxSum_URI.Text = "";
+                            textBoxMiddleValue_URI.Text = "";
+                            textBoxMinValue_URI.Text = "";
+                            textBoxMaxValue_URI.Text = "";
+                        }
+                    }
+                    else MessageBox.Show("Пожалуйста, выберите столбец", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void buttonSort_URI_Click(object sender, EventArgs e)
         {
+            //
             if (dataGridViewOpenFile_URI.RowCount != 0 && tralivali != 0)
             {
                 for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
@@ -415,6 +463,13 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             try
             {
                 dataGridViewOpenFile_URI.Rows.Add();
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                    }
+                }
             }
             catch
             {

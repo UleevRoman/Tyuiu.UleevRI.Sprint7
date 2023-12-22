@@ -30,6 +30,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,7 +108,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1217, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1217, 30);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
@@ -433,8 +434,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.comboBoxSort_URI.Name = "comboBoxSort_URI";
             this.comboBoxSort_URI.Size = new System.Drawing.Size(228, 31);
             this.comboBoxSort_URI.TabIndex = 2;
-            this.toolTipSort_URI.SetToolTip(this.comboBoxSort_URI, "Нажмите на пустое поле ввода сортировки.\r\nВыберите на ячейку в таблице, для столб" +
-        "ца\r\nкоторой произведется сортировка\r\n");
+            this.toolTipSort_URI.SetToolTip(this.comboBoxSort_URI, resources.GetString("comboBoxSort_URI.ToolTip"));
             this.comboBoxSort_URI.SelectedIndexChanged += new System.EventHandler(this.comboBoxSort_URI_SelectedIndexChanged);
             this.comboBoxSort_URI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comboBoxSort_URI_KeyDown);
             // 
