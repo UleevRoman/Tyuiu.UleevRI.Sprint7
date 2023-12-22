@@ -59,6 +59,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonAdd_URI = new System.Windows.Forms.Button();
             this.buttonDelete_URI = new System.Windows.Forms.Button();
             this.groupBoxFilter_URI = new System.Windows.Forms.GroupBox();
+            this.buttonFilter_URI = new System.Windows.Forms.Button();
             this.textBoxFilter_URI = new System.Windows.Forms.TextBox();
             this.groupBoxSort_URI = new System.Windows.Forms.GroupBox();
             this.comboBoxSort_URI = new System.Windows.Forms.ComboBox();
@@ -76,6 +77,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolTipMiddleValue_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipMinValue_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipMaxVelue_URI = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonSort_URI = new System.Windows.Forms.Button();
             this.panelHelp_URI.SuspendLayout();
             this.MenuStrip_URI.SuspendLayout();
             this.panelActions_URI.SuspendLayout();
@@ -106,7 +108,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
             this.MenuStrip_URI.TabIndex = 8;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
@@ -284,6 +286,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxMaxValue_URI.Size = new System.Drawing.Size(214, 30);
             this.textBoxMaxValue_URI.TabIndex = 4;
             this.toolTipMaxVelue_URI.SetToolTip(this.textBoxMaxValue_URI, "Выберите столбец для нахождения максимального значения его строк");
+            this.textBoxMaxValue_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMaxValue_URI_KeyUp);
             // 
             // textBoxMinValue_URI
             // 
@@ -291,6 +294,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxMinValue_URI.Name = "textBoxMinValue_URI";
             this.textBoxMinValue_URI.Size = new System.Drawing.Size(229, 30);
             this.textBoxMinValue_URI.TabIndex = 3;
+            this.textBoxMinValue_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMinValue_URI_KeyUp);
             // 
             // textBoxMiddleValue_URI
             // 
@@ -299,6 +303,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxMiddleValue_URI.Size = new System.Drawing.Size(164, 30);
             this.textBoxMiddleValue_URI.TabIndex = 2;
             this.toolTipMiddleValue_URI.SetToolTip(this.textBoxMiddleValue_URI, "Выберите столбец для подсчета среднего значений его строк");
+            this.textBoxMiddleValue_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMiddleValue_URI_KeyUp);
             // 
             // textBoxSum_URI
             // 
@@ -375,15 +380,26 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             this.groupBoxFilter_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxFilter_URI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBoxFilter_URI.Controls.Add(this.buttonFilter_URI);
             this.groupBoxFilter_URI.Controls.Add(this.textBoxFilter_URI);
             this.groupBoxFilter_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxFilter_URI.Location = new System.Drawing.Point(935, 245);
             this.groupBoxFilter_URI.Name = "groupBoxFilter_URI";
-            this.groupBoxFilter_URI.Size = new System.Drawing.Size(241, 106);
+            this.groupBoxFilter_URI.Size = new System.Drawing.Size(241, 146);
             this.groupBoxFilter_URI.TabIndex = 4;
             this.groupBoxFilter_URI.TabStop = false;
             this.groupBoxFilter_URI.Text = "Фильтрация";
             this.toolTipFilter_URI.SetToolTip(this.groupBoxFilter_URI, "Введите запрос в поле ввода \r\nи выберите столбец в таблице");
+            // 
+            // buttonFilter_URI
+            // 
+            this.buttonFilter_URI.Location = new System.Drawing.Point(7, 99);
+            this.buttonFilter_URI.Name = "buttonFilter_URI";
+            this.buttonFilter_URI.Size = new System.Drawing.Size(228, 41);
+            this.buttonFilter_URI.TabIndex = 4;
+            this.buttonFilter_URI.Text = "Убрать фильтры";
+            this.buttonFilter_URI.UseVisualStyleBackColor = true;
+            this.buttonFilter_URI.Click += new System.EventHandler(this.buttonFilter_URI_Click);
             // 
             // textBoxFilter_URI
             // 
@@ -400,24 +416,23 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.groupBoxSort_URI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxSort_URI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBoxSort_URI.Controls.Add(this.buttonSort_URI);
             this.groupBoxSort_URI.Controls.Add(this.comboBoxSort_URI);
             this.groupBoxSort_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBoxSort_URI.Location = new System.Drawing.Point(935, 49);
             this.groupBoxSort_URI.Name = "groupBoxSort_URI";
-            this.groupBoxSort_URI.Size = new System.Drawing.Size(241, 104);
+            this.groupBoxSort_URI.Size = new System.Drawing.Size(241, 146);
             this.groupBoxSort_URI.TabIndex = 3;
             this.groupBoxSort_URI.TabStop = false;
             this.groupBoxSort_URI.Text = "Сортировка";
-            this.toolTipSort_URI.SetToolTip(this.groupBoxSort_URI, "Нажмите на пустое поле ввода сортировки.\r\nВыберите на ячейку в таблице, для столб" +
-        "ца\r\nкоторой произведется сортировка");
+            this.toolTipSort_URI.SetToolTip(this.groupBoxSort_URI, "Выберите ячейку в таблице, для столбца\r\nкоторой произведется сортировка\r\n");
             // 
             // comboBoxSort_URI
             // 
             this.comboBoxSort_URI.FormattingEnabled = true;
             this.comboBoxSort_URI.Items.AddRange(new object[] {
-            "По возрастанию",
-            "По убыванию",
-            "Изначальное состояние"});
+            "По возрастанию (от А до Я)",
+            "По убыванию (от Я до А)"});
             this.comboBoxSort_URI.Location = new System.Drawing.Point(7, 61);
             this.comboBoxSort_URI.Name = "comboBoxSort_URI";
             this.comboBoxSort_URI.Size = new System.Drawing.Size(228, 31);
@@ -454,6 +469,16 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelMenu_URI.Name = "panelMenu_URI";
             this.panelMenu_URI.Size = new System.Drawing.Size(32, 664);
             this.panelMenu_URI.TabIndex = 1;
+            // 
+            // buttonSort_URI
+            // 
+            this.buttonSort_URI.Location = new System.Drawing.Point(7, 98);
+            this.buttonSort_URI.Name = "buttonSort_URI";
+            this.buttonSort_URI.Size = new System.Drawing.Size(228, 42);
+            this.buttonSort_URI.TabIndex = 3;
+            this.buttonSort_URI.Text = "Убрать сортировку";
+            this.buttonSort_URI.UseVisualStyleBackColor = true;
+            this.buttonSort_URI.Click += new System.EventHandler(this.buttonSort_URI_Click);
             // 
             // FormMain
             // 
@@ -537,6 +562,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.ToolTip toolTipSum_URI;
         private System.Windows.Forms.ToolTip toolTipQuantity_URI;
         private System.Windows.Forms.ToolTip toolTipMinValue_URI;
+        private System.Windows.Forms.Button buttonFilter_URI;
+        private System.Windows.Forms.Button buttonSort_URI;
     }
 }
 

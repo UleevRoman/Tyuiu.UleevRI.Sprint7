@@ -153,8 +153,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 if (result == DialogResult.Yes) konechno = 1;
                 if (konechno == 1)
                 {
-                    int a = dataGridViewOpenFile_URI.CurrentCell.RowIndex;
-                    dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[a]);
+                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                    {
+                        int a = dataGridViewOpenFile_URI.CurrentCell.RowIndex;
+                        dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[a]);
+                    }
                 }
             }
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
