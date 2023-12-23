@@ -150,7 +150,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         {
             if (dataGridViewOpenFile_URI.RowCount != 0)
             {
-                int nugno = -1; int udal = 0;
+                int nugno = -1;
                 for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                 {
                     for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
@@ -161,7 +161,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                             break;
                         }
                     }
-                    if (nugno > -1) udal++;
+                    if (nugno > -1) break;
                 }
                 if (nugno > -1)
                 {
@@ -171,7 +171,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            int k = -1;
+                            int k = -1; int udal = 0;
                             for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                             {
                                 if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
@@ -180,6 +180,10 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                                     break;
                                 }
                                 if (k > -1) break;
+                            }
+                            for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                            {
+                                if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true) udal++;
                             }
                             for (int r = 0; r < udal; r++) dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[k]);
                             for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
@@ -219,7 +223,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private void buttonAddGraphyks_URI_Click(object sender, EventArgs e)
         {
             this.chartFunction_URI.ChartAreas[0].AxisX.Title = "ID";
-            //
+            
             this.chartFunction_URI.ChartAreas[0].AxisY.Title = "Ось Y";
         }
     }
