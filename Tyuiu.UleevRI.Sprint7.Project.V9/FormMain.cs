@@ -70,9 +70,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
                     }
                 }
-                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 9);
-                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Arial", 10.99F, GraphicsUnit.Pixel);
                 this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Tahoma", 9);
                 dataGridViewOpenFile_URI.AutoResizeColumns();
                 comboBoxSort_URI.Text = "";
@@ -134,6 +131,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
                     }
                 }
+
+                textBoxQuantity_URI.Text = "";
+                textBoxSum_URI.Text = "";
+                textBoxMiddleValue_URI.Text = "";
+                textBoxMinValue_URI.Text = "";
+                textBoxMaxValue_URI.Text = "";
             }
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -172,7 +175,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 }
                 tralivali++;
                 
-                int vozmogno = 1; int k = -1; 
+                int vozmogno = 0; int k = -1; 
                 for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                 {
                     for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount; j++)
@@ -186,7 +189,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                     else vozmogno = 0;
                 }
-                if (k > -1) MessageBox.Show("Пожалуйста, удалите все пустые строки, кроме последней", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (k > 0) MessageBox.Show("Пожалуйста, удалите все пустые строки, кроме последней", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
@@ -195,13 +198,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         {
             if (comboBoxSort_URI.SelectedItem != null && dataGridViewOpenFile_URI.RowCount != 0)
             {
-                int vozmogno = 1; int k = -1;
+                int vozmogno = 0; int k = -1;
                 for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                 {
                     for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount; j++)
                     {
                         if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value == null) vozmogno++;
                     }
+                    textBoxMaxValue_URI.Text = Convert.ToString(vozmogno);
                     if (vozmogno == dataGridViewOpenFile_URI.ColumnCount)
                     {
                         k = i;
@@ -209,7 +213,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                     else vozmogno = 0;
                 }
-                if (k > -1) MessageBox.Show("Пожалуйста, удалите все пустые строки, кроме последней", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (k > 0) MessageBox.Show("Пожалуйста, удалите все пустые строки, кроме последней", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     int kakbuda = 0;
@@ -241,31 +245,22 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
                         for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                         {
-                            string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString();
-                            if (elmnt.Contains(","))
+                            double cellValue;
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value != null && double.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString(), out cellValue))
                             {
-                                elmnt.Replace(",", ".");
-                                dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value = Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString());
-                            }
-                            else
-                            {
-                                int cellValue;
-                                if (int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString(), out cellValue))
-                                {
-                                    dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value = Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value.ToString());
-                                }
+                                dataGridViewOpenFile_URI.Rows[i].Cells[columnIndex].Value = cellValue;
                             }
                         }
 
-                        if (dataGridViewOpenFile_URI.RowCount != 0)
+                        string selectedItem = comboBoxSort_URI.SelectedItem.ToString();
+                        if (selectedItem == "По возрастанию (от А до Я)" && tralivali != 0)
                         {
                             DataGridViewRow row = dataGridViewOpenFile_URI.Rows[0];
                             dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[0]);
 
                             DataGridViewColumn column = dataGridViewOpenFile_URI.Columns[columnIndex];
-                            string selectedItem = comboBoxSort_URI.SelectedItem.ToString();
-                            if (selectedItem == "По возрастанию (от А до Я)") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Ascending);
-                            if (selectedItem == "По убыванию (от Я до А)") dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Descending);
+
+                            dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Ascending);
                             dataGridViewOpenFile_URI.Rows.Insert(0, row);
 
                             for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
@@ -275,15 +270,41 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                                     dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
                                 }
                             }
-
-                            textBoxQuantity_URI.Text = "";
-                            textBoxSum_URI.Text = "";
-                            textBoxMiddleValue_URI.Text = "";
-                            textBoxMinValue_URI.Text = "";
-                            textBoxMaxValue_URI.Text = "";
                         }
+                        else if (selectedItem == "По убыванию (от Я до А)" && tralivali != 0)
+                        {
+                            DataGridViewRow row = dataGridViewOpenFile_URI.Rows[0];
+                            dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[0]);
+
+                            DataGridViewColumn column = dataGridViewOpenFile_URI.Columns[columnIndex];
+
+                            dataGridViewOpenFile_URI.Sort(column, ListSortDirection.Descending);
+                            dataGridViewOpenFile_URI.Rows.Insert(0, row);
+
+                            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                            {
+                                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                                {
+                                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                                }
+                            }
+                        }
+                        else MessageBox.Show("Не забудьте нажать на пустое поле ввода сортирвоки!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        textBoxQuantity_URI.Text = "";
+                        textBoxSum_URI.Text = "";
+                        textBoxMiddleValue_URI.Text = "";
+                        textBoxMinValue_URI.Text = "";
+                        textBoxMaxValue_URI.Text = "";
                     }
-                    else MessageBox.Show("Пожалуйста, выберите столбец", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else if (kakbuda == (dataGridViewOpenFile_URI.RowCount - 1) * (dataGridViewOpenFile_URI.ColumnCount - 1) && tralivali != 0)
+                    {
+                        MessageBox.Show("Пожалуйста, выберите столбец", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (kakbuda == (dataGridViewOpenFile_URI.RowCount - 1) * (dataGridViewOpenFile_URI.ColumnCount - 1) && tralivali == 0)
+                    {
+                        MessageBox.Show($"{"Пожалуйста, выберите столбец." + "\r"}{"Не забудьте нажать на пустое поле ввода сортирвоки!"}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -291,7 +312,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
         private void buttonSort_URI_Click(object sender, EventArgs e)
         {
-            //
             if (dataGridViewOpenFile_URI.RowCount != 0 && tralivali != 0)
             {
                 for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
@@ -406,6 +426,20 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                 }
                 dataGridViewOpenFile_URI.AutoResizeColumns();
+
+                for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                {
+                    for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                    {
+                        dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                    }
+                }
+
+                textBoxQuantity_URI.Text = "";
+                textBoxSum_URI.Text = "";
+                textBoxMiddleValue_URI.Text = "";
+                textBoxMinValue_URI.Text = "";
+                textBoxMaxValue_URI.Text = "";
             }
             else if (dataGridViewOpenFile_URI.RowCount != 0 && bulo == 0) MessageBox.Show("Еще не были применены фильтры", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -430,25 +464,29 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 }
                 if (nugno > -1)
                 {
-                    var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    if (dataGridViewOpenFile_URI.Rows[0].Cells[nugno].Selected == true) MessageBox.Show("Первую строку нельзя удалить", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
                     {
-                        int k = -1;
-                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                        var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
                         {
-                            if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
+                            int k = -1;
+                            for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                             {
-                                k = i;
-                                break;
+                                if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
+                                {
+                                    k = i;
+                                    break;
+                                }
+                                if (k > -1) break;
                             }
-                            if (k > -1) break;
-                        }
-                        for (int r = 0; r < udal; r++) dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[k]);
-                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                        {
-                            for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                            for (int r = 0; r < udal; r++) dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[k]);
+                            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                             {
-                                dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                                {
+                                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                                }
                             }
                         }
                     }
@@ -540,19 +578,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                             {
                                 if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
                                 {
-                                    string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString();
-                                    if (elmnt.Contains(","))
+                                    double cellValue;
+                                    if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value != null && double.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
                                     {
-                                        elmnt.Replace(",", ".");
+                                        dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value = cellValue;
                                         sum += Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString());
-                                    }
-                                    else
-                                    {
-                                        int cellValue;
-                                        if (int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
-                                        {
-                                            sum += Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString());
-                                        }
                                     }
                                 }
                             }
@@ -612,25 +642,16 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                             {
                                 if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
                                 {
-                                    string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString();
-                                    if (elmnt.Contains(","))
+                                    double cellValue;
+                                    if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value != null && double.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
                                     {
-                                        elmnt.Replace(",", ".");
+                                        dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value = cellValue;
                                         srznach += Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString());
                                         kol++;
                                     }
-                                    else
-                                    {
-                                        int cellValue;
-                                        if (int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
-                                        {
-                                            srznach += Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString());
-                                            kol++;
-                                        }
-                                    }
                                 }
                             }
-                            if (srznach != 0) textBoxMiddleValue_URI.Text = Convert.ToString(srznach / kol);
+                            if (srznach != 0) textBoxMiddleValue_URI.Text = Convert.ToString(Math.Round(srznach / kol, 5));
                             else
                             {
                                 MessageBox.Show("Пожалуйста, выберите диапозон ячеек с числами", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -686,19 +707,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                             {
                                 if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
                                 {
-                                    string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString();
-                                    if (elmnt.Contains(","))
+                                    double cellValue;
+                                    if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value != null && double.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
                                     {
-                                        elmnt.Replace(",", ".");
+                                        dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value = cellValue;
                                         min = Math.Min(Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString()), min);
-                                    }
-                                    else
-                                    {
-                                        int cellValue;
-                                        if (int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
-                                        {
-                                            min = Math.Min(Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString()), min);
-                                        }
                                     }
                                 }
                             }
@@ -756,21 +769,14 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                             double max = -9999999;
                             for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                             {
+
                                 if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
                                 {
-                                    string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString();
-                                    if (elmnt.Contains(","))
+                                    double cellValue;
+                                    if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value != null && double.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
                                     {
-                                        elmnt.Replace(",", ".");
+                                        dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value = cellValue;
                                         max = Math.Max(Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString()), max);
-                                    }
-                                    else
-                                    {
-                                        int cellValue;
-                                        if (int.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue))
-                                        {
-                                            max = Math.Max(Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString()), max);
-                                        }
                                     }
                                 }
                             }

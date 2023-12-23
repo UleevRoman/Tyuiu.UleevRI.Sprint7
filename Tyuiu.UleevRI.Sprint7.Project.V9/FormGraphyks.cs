@@ -165,25 +165,29 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 }
                 if (nugno > -1)
                 {
-                    var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
+                    if (dataGridViewOpenFile_URI.Rows[0].Cells[nugno].Selected == true) MessageBox.Show("Первую строку нельзя удалить", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
                     {
-                        int k = -1;
-                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                        var result = MessageBox.Show($"{"Удалить данную строку?" + "\r"}{"Ее невозможно будет восстановить"}", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
                         {
-                            if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
+                            int k = -1;
+                            for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                             {
-                                k = i;
-                                break;
+                                if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected == true)
+                                {
+                                    k = i;
+                                    break;
+                                }
+                                if (k > -1) break;
                             }
-                            if (k > -1) break;
-                        }
-                        for (int r = 0; r < udal; r++) dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[k]);
-                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
-                        {
-                            for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                            for (int r = 0; r < udal; r++) dataGridViewOpenFile_URI.Rows.Remove(dataGridViewOpenFile_URI.Rows[k]);
+                            for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
                             {
-                                dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                                for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                                {
+                                    dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
+                                }
                             }
                         }
                     }
