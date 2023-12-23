@@ -61,26 +61,26 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 30);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1219, 28);
             this.MenuStrip_URI.TabIndex = 10;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
             // ToolStripMenuItem
             // 
             this.ToolStripMenuItem.Name = "ToolStripMenuItem";
-            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 26);
+            this.ToolStripMenuItem.Size = new System.Drawing.Size(14, 24);
             // 
             // toolStripMenuItemBack_URI
             // 
             this.toolStripMenuItemBack_URI.Name = "toolStripMenuItemBack_URI";
-            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 26);
+            this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 24);
             this.toolStripMenuItemBack_URI.Text = "Назад";
             this.toolStripMenuItemBack_URI.Click += new System.EventHandler(this.toolStripMenuItemBack_URI_Click);
             // 
             // toolStripMenuItemHelp_URI
             // 
             this.toolStripMenuItemHelp_URI.Name = "toolStripMenuItemHelp_URI";
-            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 26);
+            this.toolStripMenuItemHelp_URI.Size = new System.Drawing.Size(118, 24);
             this.toolStripMenuItemHelp_URI.Text = "О программе";
             this.toolStripMenuItemHelp_URI.Click += new System.EventHandler(this.toolStripMenuItemHelp_URI_Click);
             // 
@@ -114,6 +114,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxGueid_URI.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxGueid_URI.Size = new System.Drawing.Size(1219, 615);
             this.textBoxGueid_URI.TabIndex = 0;
+            this.textBoxGueid_URI.TabStop = false;
             this.textBoxGueid_URI.Text = resources.GetString("textBoxGueid_URI.Text");
             // 
             // FormGuied
@@ -127,7 +128,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.Name = "FormGuied";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Краткое руководство";
-            this.Load += new System.EventHandler(this.FormGuied_Load);
             this.panelHelp_URI.ResumeLayout(false);
             this.panelHelp_URI.PerformLayout();
             this.MenuStrip_URI.ResumeLayout(false);
