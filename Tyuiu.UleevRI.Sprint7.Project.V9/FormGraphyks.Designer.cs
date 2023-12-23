@@ -31,15 +31,13 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGraphyks));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemBack_URI = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItemGraphyks_URI = new System.Windows.Forms.ToolStripMenuItem();
-            this.сохранитьToolStripMenuItemGraphyks_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemGuied_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItemGuied_URI = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemHelp_URI = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,7 +86,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.MenuStrip_URI.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem,
             this.toolStripMenuItemBack_URI,
-            this.ToolStripMenuItemGraphyks_URI,
             this.ToolStripMenuItemGuied_URI,
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
@@ -108,21 +105,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemBack_URI.Size = new System.Drawing.Size(65, 24);
             this.toolStripMenuItemBack_URI.Text = "Назад";
             this.toolStripMenuItemBack_URI.Click += new System.EventHandler(this.toolStripMenuItemBack_URI_Click);
-            // 
-            // ToolStripMenuItemGraphyks_URI
-            // 
-            this.ToolStripMenuItemGraphyks_URI.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.сохранитьToolStripMenuItemGraphyks_URI});
-            this.ToolStripMenuItemGraphyks_URI.Name = "ToolStripMenuItemGraphyks_URI";
-            this.ToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(82, 24);
-            this.ToolStripMenuItemGraphyks_URI.Text = "Графики";
-            // 
-            // сохранитьToolStripMenuItemGraphyks_URI
-            // 
-            this.сохранитьToolStripMenuItemGraphyks_URI.Name = "сохранитьToolStripMenuItemGraphyks_URI";
-            this.сохранитьToolStripMenuItemGraphyks_URI.Size = new System.Drawing.Size(166, 26);
-            this.сохранитьToolStripMenuItemGraphyks_URI.Text = "Сохранить";
-            this.сохранитьToolStripMenuItemGraphyks_URI.Click += new System.EventHandler(this.сохранитьToolStripMenuItemGraphyks_URI_Click);
             // 
             // ToolStripMenuItemGuied_URI
             // 
@@ -216,19 +198,19 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // chartFunction_URI
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartFunction_URI.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.chartFunction_URI.ChartAreas.Add(chartArea2);
             this.chartFunction_URI.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chartFunction_URI.Legends.Add(legend1);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chartFunction_URI.Legends.Add(legend2);
             this.chartFunction_URI.Location = new System.Drawing.Point(0, 0);
             this.chartFunction_URI.Name = "chartFunction_URI";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartFunction_URI.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartFunction_URI.Series.Add(series2);
             this.chartFunction_URI.Size = new System.Drawing.Size(631, 452);
             this.chartFunction_URI.TabIndex = 0;
             this.chartFunction_URI.Text = "chart1";
@@ -374,7 +356,5 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.Button buttonAdd_URI;
         private System.Windows.Forms.ToolTip toolTipDelete_URI;
         private System.Windows.Forms.ToolTip toolTipAdd_URI;
-        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemGraphyks_URI;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItemGraphyks_URI;
     }
 }

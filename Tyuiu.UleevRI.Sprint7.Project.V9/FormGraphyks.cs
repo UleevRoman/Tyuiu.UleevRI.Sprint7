@@ -51,27 +51,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             formMain.Show();
         }
 
-        private void сохранитьToolStripMenuItemGraphyks_URI_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                saveFileDialog_URI.FileName = ".csv";
-                saveFileDialog_URI.InitialDirectory = @":C";
-                saveFileDialog_URI.ShowDialog();
-                string path = saveFileDialog_URI.FileName;
-                FileInfo fileInfo = new FileInfo(path);
-                bool fileExists = fileInfo.Exists;
-                if (fileExists)
-                {
-                    File.Delete(path);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Файл не сохранен", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         static string openFile;
         static int rows;
         static int columns;

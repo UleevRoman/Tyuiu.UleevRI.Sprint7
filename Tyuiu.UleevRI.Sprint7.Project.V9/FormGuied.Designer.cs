@@ -29,6 +29,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGuied));
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,9 +114,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxGueid_URI.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxGueid_URI.Size = new System.Drawing.Size(1219, 615);
             this.textBoxGueid_URI.TabIndex = 0;
-            this.textBoxGueid_URI.Text = "Разделы руководства пользователя:\r\n1. Введение.\r\n2. Назначение и условия применен" +
-    "ия.\r\n3. Подготовка к работе.\r\n4. Описание операций.\r\n5. Аварийные ситуации.\r\n6. " +
-    "Рекомендации по освоению.";
+            this.textBoxGueid_URI.Text = resources.GetString("textBoxGueid_URI.Text");
             // 
             // FormGuied
             // 

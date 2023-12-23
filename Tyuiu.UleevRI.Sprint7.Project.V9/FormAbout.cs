@@ -15,6 +15,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         public FormAbout()
         {
             InitializeComponent();
+            pictureBoxInformation_URI.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void buttonOK_URI_Click(object sender, EventArgs e)

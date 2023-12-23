@@ -381,7 +381,8 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value != null)
                         {
                             string elmnt = dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString().ToLower();
-                            if (elmnt.StartsWith(textBoxFilter_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected = true;
+                            if (elmnt.Contains(textBoxFilter_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected = true;
+                            //if (elmnt.StartsWith(textBoxFilter_URI.Text.ToLower())) dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Selected = true;
                         }
                     }
 
