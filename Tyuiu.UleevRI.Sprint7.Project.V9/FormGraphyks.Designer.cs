@@ -31,9 +31,9 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGraphyks));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelHelp_URI = new System.Windows.Forms.Panel();
             this.MenuStrip_URI = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +59,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.saveFileDialog_URI = new System.Windows.Forms.SaveFileDialog();
             this.toolTipDelete_URI = new System.Windows.Forms.ToolTip(this.components);
             this.toolTipAdd_URI = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipAddGraphyks_URI = new System.Windows.Forms.ToolTip(this.components);
             this.panelHelp_URI.SuspendLayout();
             this.MenuStrip_URI.SuspendLayout();
             this.panelActions_URI.SuspendLayout();
@@ -77,7 +78,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelHelp_URI.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHelp_URI.Location = new System.Drawing.Point(0, 0);
             this.panelHelp_URI.Name = "panelHelp_URI";
-            this.panelHelp_URI.Size = new System.Drawing.Size(1229, 31);
+            this.panelHelp_URI.Size = new System.Drawing.Size(1217, 31);
             this.panelHelp_URI.TabIndex = 0;
             // 
             // MenuStrip_URI
@@ -90,7 +91,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.toolStripMenuItemHelp_URI});
             this.MenuStrip_URI.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip_URI.Name = "MenuStrip_URI";
-            this.MenuStrip_URI.Size = new System.Drawing.Size(1229, 28);
+            this.MenuStrip_URI.Size = new System.Drawing.Size(1217, 28);
             this.MenuStrip_URI.TabIndex = 9;
             this.MenuStrip_URI.Text = "menuStrip1";
             // 
@@ -117,7 +118,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // открытьToolStripMenuItemGuied_URI
             // 
             this.открытьToolStripMenuItemGuied_URI.Name = "открытьToolStripMenuItemGuied_URI";
-            this.открытьToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(150, 26);
+            this.открытьToolStripMenuItemGuied_URI.Size = new System.Drawing.Size(224, 26);
             this.открытьToolStripMenuItemGuied_URI.Text = "Открыть";
             this.открытьToolStripMenuItemGuied_URI.Click += new System.EventHandler(this.открытьToolStripMenuItemGuied_URI_Click);
             // 
@@ -134,7 +135,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelDown_URI.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelDown_URI.Location = new System.Drawing.Point(88, 645);
             this.panelDown_URI.Name = "panelDown_URI";
-            this.panelDown_URI.Size = new System.Drawing.Size(1141, 45);
+            this.panelDown_URI.Size = new System.Drawing.Size(1129, 45);
             this.panelDown_URI.TabIndex = 4;
             // 
             // panelActions_URI
@@ -149,7 +150,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.panelActions_URI.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelActions_URI.Location = new System.Drawing.Point(88, 31);
             this.panelActions_URI.Name = "panelActions_URI";
-            this.panelActions_URI.Size = new System.Drawing.Size(1141, 614);
+            this.panelActions_URI.Size = new System.Drawing.Size(1129, 614);
             this.panelActions_URI.TabIndex = 5;
             // 
             // buttonAddGraphyks_URI
@@ -157,17 +158,20 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonAddGraphyks_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonAddGraphyks_URI.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.buttonAddGraphyks_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddGraphyks_URI.Location = new System.Drawing.Point(860, 546);
+            this.buttonAddGraphyks_URI.Location = new System.Drawing.Point(848, 546);
             this.buttonAddGraphyks_URI.Name = "buttonAddGraphyks_URI";
             this.buttonAddGraphyks_URI.Size = new System.Drawing.Size(238, 43);
             this.buttonAddGraphyks_URI.TabIndex = 8;
             this.buttonAddGraphyks_URI.Text = "Построить график";
+            this.toolTipAddGraphyks_URI.SetToolTip(this.buttonAddGraphyks_URI, "Выберите столбец для построения графика");
             this.buttonAddGraphyks_URI.UseVisualStyleBackColor = false;
             this.buttonAddGraphyks_URI.Click += new System.EventHandler(this.buttonAddGraphyks_URI_Click);
             // 
             // splitContainerFunction_URI
             // 
-            this.splitContainerFunction_URI.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitContainerFunction_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainerFunction_URI.Location = new System.Drawing.Point(0, 0);
             this.splitContainerFunction_URI.Name = "splitContainerFunction_URI";
             // 
@@ -198,19 +202,19 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             // chartFunction_URI
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartFunction_URI.ChartAreas.Add(chartArea2);
+            chartArea1.Name = "ChartArea1";
+            this.chartFunction_URI.ChartAreas.Add(chartArea1);
             this.chartFunction_URI.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chartFunction_URI.Legends.Add(legend2);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.chartFunction_URI.Legends.Add(legend1);
             this.chartFunction_URI.Location = new System.Drawing.Point(0, 0);
             this.chartFunction_URI.Name = "chartFunction_URI";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartFunction_URI.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartFunction_URI.Series.Add(series1);
             this.chartFunction_URI.Size = new System.Drawing.Size(631, 452);
             this.chartFunction_URI.TabIndex = 0;
             this.chartFunction_URI.Text = "chart1";
@@ -220,7 +224,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.buttonDeleteGraphuks_URI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDeleteGraphuks_URI.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.buttonDeleteGraphuks_URI.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDeleteGraphuks_URI.Location = new System.Drawing.Point(860, 484);
+            this.buttonDeleteGraphuks_URI.Location = new System.Drawing.Point(848, 484);
             this.buttonDeleteGraphuks_URI.Name = "buttonDeleteGraphuks_URI";
             this.buttonDeleteGraphuks_URI.Size = new System.Drawing.Size(238, 43);
             this.buttonDeleteGraphuks_URI.TabIndex = 10;
@@ -303,7 +307,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1229, 690);
+            this.ClientSize = new System.Drawing.Size(1217, 690);
             this.Controls.Add(this.panelActions_URI);
             this.Controls.Add(this.panelDown_URI);
             this.Controls.Add(this.panelMenu_URI);
@@ -356,5 +360,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         private System.Windows.Forms.Button buttonAdd_URI;
         private System.Windows.Forms.ToolTip toolTipDelete_URI;
         private System.Windows.Forms.ToolTip toolTipAdd_URI;
+        private System.Windows.Forms.ToolTip toolTipAddGraphyks_URI;
     }
 }
