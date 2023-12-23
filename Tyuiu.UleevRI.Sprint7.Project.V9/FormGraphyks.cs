@@ -18,7 +18,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         public FormGraphyks()
         {
             InitializeComponent();
-            openFileDialog_URI.Filter = "Значения, разделенные запятыми(*.csv)|*.csv|Всефайлы(*.*)|*.*";
+            buttonDelete_URI.Visible = false;
+            buttonAdd_URI.Visible = false;
+            buttonAddGraphyks_URI.Visible = false;
+            buttonDeleteGraphuks_URI.Visible = false;
+            splitContainerFunction_URI.Visible = false;
         }
 
         private void toolStripMenuItemHelp_URI_Click(object sender, EventArgs e)
@@ -77,6 +81,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         {
             try
             {
+                buttonDelete_URI.Visible = true;
+                buttonAdd_URI.Visible = true;
+                buttonAddGraphyks_URI.Visible = true;
+                buttonDeleteGraphuks_URI.Visible = true;
+                splitContainerFunction_URI.Visible = true;
+
                 openFileDialog_URI.ShowDialog();
                 openFile = openFileDialog_URI.FileName;
 
@@ -97,9 +107,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                         dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected = false;
                     }
                 }
-                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 9);
-                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-                //this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Arial", 10.99F, GraphicsUnit.Pixel);
                 this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Tahoma", 9);
                 dataGridViewOpenFile_URI.AutoResizeColumns();
             }
@@ -215,16 +222,75 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
 
         private void buttonDeleteGraphuks_URI_Click(object sender, EventArgs e)
         {
-            if (dataGridViewOpenFile_URI.RowCount != 0) chartFunction_URI.Series.Clear();
+            if (dataGridViewOpenFile_URI.RowCount != 0) chartFunction_URI.Series[0].Points.Clear();
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
         private void buttonAddGraphyks_URI_Click(object sender, EventArgs e)
         {
-            this.chartFunction_URI.ChartAreas[0].AxisX.Title = "ID";
-            
-            this.chartFunction_URI.ChartAreas[0].AxisY.Title = "Ось Y";
+            if (dataGridViewOpenFile_URI.RowCount != 0)
+            {
+                if (dataGridViewOpenFile_URI.RowCount > 2)
+                {
+                    int nugno = -1;
+                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                    {
+                        for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
+                        {
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                            {
+                                if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
+                                {
+                                    nugno = j;
+                                    break;
+                                }
+                            }
+                            if (nugno > -1) break;
+                        }
+                    }
+
+                    if (nugno > -1)
+                    {
+                        int kaktak = 0;
+                        for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                        {
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[0].Selected == true) kaktak++;
+                        }
+                        if (kaktak == 0)
+                        {
+                            int nadopodumati = 0;
+                            for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                            {
+                                if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value != null)
+                                {
+                                    double cellValue;
+                                    if (double.TryParse(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value.ToString(), out cellValue)) nadopodumati += 0;
+                                    else if (dataGridViewOpenFile_URI.Rows[i].Cells[nugno].ValueType.ToString().Any(char.IsLetter)) nadopodumati++;
+                                }
+                            }
+                            if (nadopodumati == 0)
+                            {
+                                this.chartFunction_URI.ChartAreas[0].AxisX.Title = "ID";
+                                string name = Convert.ToString(dataGridViewOpenFile_URI.Rows[0].Cells[nugno].Value);
+                                this.chartFunction_URI.ChartAreas[0].AxisY.Title = name;
+
+                                int startValue = Convert.ToInt32(dataGridViewOpenFile_URI.Rows[1].Cells[0].Value);
+                                for (int i = 1; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                                {
+                                    this.chartFunction_URI.Series[0].Points.AddXY(startValue, Convert.ToDouble(dataGridViewOpenFile_URI.Rows[i].Cells[nugno].Value));
+                                    startValue++;
+                                }
+                            }
+                            else MessageBox.Show("Пожалуйста, выберите столбец с числами!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        } 
+                        else MessageBox.Show("Нельзя выбрать первый столбец", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else MessageBox.Show("Не выбран столбец", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else MessageBox.Show("Нет данных для построения графика", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
