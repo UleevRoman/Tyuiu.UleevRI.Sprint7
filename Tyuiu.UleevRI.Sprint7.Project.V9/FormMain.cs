@@ -436,6 +436,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     }
                 }
 
+                textBoxFilter_URI.Text = "";
                 textBoxQuantity_URI.Text = "";
                 textBoxSum_URI.Text = "";
                 textBoxMiddleValue_URI.Text = "";
