@@ -78,6 +78,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 textBoxMiddleValue_URI.Text = "";
                 textBoxMinValue_URI.Text = "";
                 textBoxMaxValue_URI.Text = "";
+                tralivali = 0;
             }
             catch
             {
