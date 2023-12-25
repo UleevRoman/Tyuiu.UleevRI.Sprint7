@@ -73,6 +73,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 this.dataGridViewOpenFile_URI.DefaultCellStyle.Font = new Font("Tahoma", 9);
                 dataGridViewOpenFile_URI.AutoResizeColumns();
                 comboBoxSort_URI.Text = "";
+                textBoxQuantity_URI.Text = "";
+                textBoxSum_URI.Text = "";
+                textBoxMiddleValue_URI.Text = "";
+                textBoxMinValue_URI.Text = "";
+                textBoxMaxValue_URI.Text = "";
             }
             catch
             {
@@ -205,7 +210,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                     {
                         if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value == null) vozmogno++;
                     }
-                    textBoxMaxValue_URI.Text = Convert.ToString(vozmogno);
                     if (vozmogno == dataGridViewOpenFile_URI.ColumnCount)
                     {
                         k = i;
