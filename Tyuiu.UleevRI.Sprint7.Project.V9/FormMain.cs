@@ -528,28 +528,29 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
                 if (e.KeyCode == Keys.Enter)
                 {
                     int nugno = -1;
-                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount - 1; i++)
+                    for (int i = 0; i < dataGridViewOpenFile_URI.RowCount; i++)
                     {
                         for (int j = 0; j < dataGridViewOpenFile_URI.ColumnCount - 1; j++)
                         {
-                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Value != null)
+                            if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
                             {
-                                if (dataGridViewOpenFile_URI.Rows[i].Cells[j].Selected == true)
-                                {
-                                    nugno = j;
-                                    break;
-                                }
+                                nugno = j;
+                                break;
                             }
                             if (nugno > -1) break;
                         }
                     }
 
-                    int counter = 0;
-                    for (int r = 0; r < dataGridViewOpenFile_URI.RowCount - 1; r++)
+                    if (nugno > -1)
                     {
-                        if (dataGridViewOpenFile_URI.Rows[r].Cells[nugno].Selected == true) counter++;
+                        int counter = 0;
+                        for (int r = 0; r < dataGridViewOpenFile_URI.RowCount; r++)
+                        {
+                            if (dataGridViewOpenFile_URI.Rows[r].Cells[nugno].Selected == true) counter++;
+                        }
+                        textBoxQuantity_URI.Text = Convert.ToString(counter);
                     }
-                    textBoxQuantity_URI.Text = Convert.ToString(counter);
+                    else MessageBox.Show("Не выбран столбец", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else MessageBox.Show("Файл не выбран", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

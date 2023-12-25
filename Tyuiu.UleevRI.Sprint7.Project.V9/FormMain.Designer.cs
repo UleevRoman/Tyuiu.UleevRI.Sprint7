@@ -295,6 +295,7 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.textBoxMinValue_URI.Name = "textBoxMinValue_URI";
             this.textBoxMinValue_URI.Size = new System.Drawing.Size(229, 30);
             this.textBoxMinValue_URI.TabIndex = 3;
+            this.toolTipMinValue_URI.SetToolTip(this.textBoxMinValue_URI, "Выберите столбец для нахождения минимального значения его строк");
             this.textBoxMinValue_URI.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMinValue_URI_KeyUp);
             // 
             // textBoxMiddleValue_URI
@@ -490,7 +491,6 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             this.Controls.Add(this.panelHelp_URI);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainMenuStrip = this.MenuStrip_URI;
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1235, 737);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
