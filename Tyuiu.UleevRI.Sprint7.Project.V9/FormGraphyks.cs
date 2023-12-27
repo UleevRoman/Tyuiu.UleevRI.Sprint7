@@ -18,11 +18,11 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
         public FormGraphyks()
         {
             InitializeComponent();
-            buttonDelete_URI.Visible = false;
-            buttonAdd_URI.Visible = false;
-            buttonAddGraphyks_URI.Visible = false;
-            buttonDeleteGraphuks_URI.Visible = false;
-            splitContainerFunction_URI.Visible = false;
+            //buttonDelete_URI.Visible = false;
+            //buttonAdd_URI.Visible = false;
+            //buttonAddGraphyks_URI.Visible = false;
+            //buttonDeleteGraphuks_URI.Visible = false;
+            //splitContainerFunction_URI.Visible = false;
         }
 
         private void toolStripMenuItemHelp_URI_Click(object sender, EventArgs e)

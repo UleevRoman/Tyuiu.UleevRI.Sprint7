@@ -32,5 +32,12 @@ namespace Tyuiu.UleevRI.Sprint7.Project.V9
             FormMain formMain = new FormMain();
             formMain.Show();
         }
+
+        private void FormGuied_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMain formMain = new FormMain();
+            formMain.Show();
+        }
     }
 }
